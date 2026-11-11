@@ -311,7 +311,7 @@
       <div class="flight-strip" aria-label="가는 편 항공 정보">
         <div class="airport"><strong>PUS</strong><span>14:00 · 김해공항</span></div>
         <div class="plane">✈</div>
-        <div class="airport"><strong>FUK</strong><span>후쿠오카공항</span></div>
+        <div class="airport"><strong>FUK</strong><span>15:00 · 후쿠오카 T1</span></div>
       </div>
     </header>
 
@@ -342,10 +342,21 @@
         </article>
 
         <article class="info-card">
+          <h3>✈️ 에어부산 왕복 항공편</h3>
+          <p><span class="label">가는 편</span> 12월 30일(수) BX0509 · 부산 김해공항 T1 14:00 → 후쿠오카공항 T1 15:00 · 비행 1시간</p>
+          <p><span class="label">오는 편</span> 1월 3일(일) BX0506 · 후쿠오카공항 T1 11:55 → 부산 김해공항 T1 13:00 · 비행 1시간 5분</p>
+          <p><span class="label">좌석</span> 이코노미 · 직항</p>
+          <p><span class="label">수하물</span> 1인당 위탁수하물 15kg</p>
+          <p><span class="label">공항 목표</span> 출국편은 11:30 김해공항 도착, 귀국편은 09:10 후쿠오카공항 국제선 도착을 권장합니다.</p>
+        </article>
+
+        <article class="info-card">
           <h3>🏨 크로스라이프 하카타 텐진</h3>
           <p><span class="label">숙박</span> 2026.12.30–2027.01.03 · 4박</p>
+          <p><span class="label">체크인 / 아웃</span> 12월 30일 15:00 / 1월 3일 11:00</p>
+          <p><span class="label">객실</span> 컴포트 트윈 금연 2실 · 성인 4명</p>
           <p><span class="label">조식</span> 매일 호텔 조식 후 10:00 전후 출발을 기본으로 구성했습니다.</p>
-          <p><span class="label">객실</span> 컴포트 트윈은 트윈베드 중심 객실이므로 아기침대·침대가드 가능 여부와 성인 4명 객실 배정을 호텔에 미리 확인하세요.</p>
+          <p><span class="label">아기</span> 컴포트 트윈은 트윈베드 중심 객실이므로 아기침대·침대가드 가능 여부와 아기 동반 투숙 등록을 호텔에 미리 확인하세요.</p>
           <p><span class="label">위치</span> 텐진·나카스·캐널시티 접근이 좋아 첫날과 텐진 일정은 도보와 짧은 택시를 섞는 편이 편합니다.</p>
           <a class="source-link" href="https://maps.google.com/?q=CROSS+LIFE+Hakata+Tenjin" target="_blank" rel="noopener">호텔 위치 보기 ↗</a>
         </article>
@@ -525,9 +536,10 @@
         note: '오후 2시 부산 출발 기준입니다. 실제 도착 시각에 따라 우오덴 식사부터 30–60분 늦추고, 부모님이나 아기가 피곤하면 술 한잔 일정은 생략하세요.',
         events: [
           { time: '11:30', type: 'transit', title: '김해공항 국제선 도착', desc: '성인 4명·11개월 아기 수속 시간 확보\n여권·e-ticket·아기용품은 한 가방에 정리' },
-          { time: '14:00', type: 'flight', title: '부산 → 후쿠오카', desc: '사용자 공유 일정의 오후 2시 출발편\n항공사·편명·도착 시각은 예약표에서 최종 확인', map: 'https://www.google.com/maps/search/?api=1&query=Fukuoka+Airport+International+Terminal' },
-          { time: '도착 후 60–90분', type: 'transit', title: '입국 수속 · 호텔 이동', desc: '성인 4명과 아기, 캐리어를 고려해 공항에서 호텔까지 대형 택시 우선\n차량이 없으면 일반 택시 2대로 나눠 이동', map: 'https://www.google.com/maps/dir/?api=1&origin=Fukuoka+Airport+International+Terminal&destination=CROSS+LIFE+Hakata+Tenjin&travelmode=driving' },
-          { time: '17:30', type: 'hotel', title: '체크인 · 짐 정리', desc: '크로스라이프 하카타 텐진\n아기침대·침대가드와 다음 날 조식 시간을 프런트에서 확인', map: 'https://www.google.com/maps/search/?api=1&query=CROSS+LIFE+Hakata+Tenjin' },
+          { time: '14:00–15:00', type: 'flight', title: '에어부산 BX0509 · 부산→후쿠오카', desc: 'PUS T1 → FUK T1 · 직항 1시간\n이코노미 · 1인당 위탁수하물 15kg', map: 'https://www.google.com/maps/search/?api=1&query=Fukuoka+Airport+International+Terminal' },
+          { time: '15:00–16:10', type: 'transit', title: '입국 수속 · 짐 찾기', desc: '후쿠오카공항 국제선 T1 도착\n성인 4명·11개월 아기 입국 수속과 수하물 수령 시간 확보' },
+          { time: '16:10–16:40', type: 'transit', title: '공항 → 호텔 이동', desc: '성인 4명과 아기, 캐리어를 고려해 대형 택시 우선\n차량이 없으면 일반 택시 2대로 나눠 이동', map: 'https://www.google.com/maps/dir/?api=1&origin=Fukuoka+Airport+International+Terminal&destination=CROSS+LIFE+Hakata+Tenjin&travelmode=driving' },
+          { time: '16:40–17:30', type: 'hotel', title: '체크인 · 짐 정리', desc: '컴포트 트윈 금연 2실 · 성인 4명\n아기침대·침대가드와 다음 날 조식 시간을 프런트에서 확인', map: 'https://www.google.com/maps/search/?api=1&query=CROSS+LIFE+Hakata+Tenjin' },
           { time: '18:00–19:00', type: 'meal', title: '우오덴 저녁 · 1순위', desc: '가족 5명이 함께 앉을 수 있는 좌석 확인\n만석이거나 대기가 길면 원조 하카타 멘타이쥬를 2순위로 선택', map: 'https://www.google.com/maps/search/?api=1&query=Uoden+Fukuoka', detail: '첫날 저녁 후보\n\n1순위: 우오덴\n2순위: 원조 하카타 멘타이쥬\n\n두 곳 모두 니시나카스 동선이라 이후 TOFFEE park와 나카스강으로 연결하기 좋습니다. 아기와 부모님이 함께하므로 30분 이상 대기하면 2순위로 이동하세요.' },
           { time: '19:00–19:40', type: 'cafe', title: 'TOFFEE park', desc: '우오덴에서 도보 약 3–5분 · 강변 카페\n저녁 일찍 닫을 수 있어 당일 19시 영업 여부 확인\n문을 닫았다면 외관만 보고 나카스강으로 이동', map: 'https://www.google.com/maps/dir/?api=1&origin=Uoden+Fukuoka&destination=TOFFEE+park+Fukuoka&travelmode=walking' },
           { time: '19:40–20:00', type: 'sight', title: '나카스강 야경 산책', desc: 'TOFFEE park에서 캐널시티 방향으로 짧게 이동\n겨울 강바람이 강하면 산책 시간을 줄이기', map: 'https://www.google.com/maps/dir/?api=1&origin=TOFFEE+park+Fukuoka&destination=Canal+City+Hakata&travelmode=walking' },
@@ -598,24 +610,24 @@
         date: '1월 3일 (일)',
         label: '5일차 · 귀국',
         route: '호텔 → 후쿠오카공항 → 부산',
-        note: '공유 대화에 귀국편 시각이 표시되지 않아 예약표 기준으로 움직이도록 구성했습니다. 국제선 공항 도착 목표는 출발 2시간 30분 전입니다.',
+        note: '에어부산 BX0506은 11:55 출발입니다. 호텔 조식 후 08:30 체크아웃, 09:10까지 후쿠오카공항 국제선 T1 도착을 목표로 하세요.',
         events: [
-          { time: '항공편 4시간 전', type: 'meal', title: '호텔 조식 · 최종 점검', desc: '여권·지갑·휴대폰·충전기·아기용품 확인\n객실 서랍과 욕실에 두고 온 물건 없는지 확인' },
-          { time: '항공편 3시간 전', type: 'hotel', title: '체크아웃', desc: '캐리어 수량과 무게 확인\n대형 택시를 호출하고 국제선 터미널을 목적지로 지정' },
-          { time: '항공편 2시간 30분 전', type: 'transit', title: '후쿠오카공항 국제선 도착', desc: '성인 4명과 아기 수속 시간을 넉넉히 확보\n수하물 위탁 후 탑승구 위치를 먼저 확인', map: 'https://www.google.com/maps/dir/?api=1&origin=CROSS+LIFE+Hakata+Tenjin&destination=Fukuoka+Airport+International+Terminal&travelmode=driving' },
-          { time: '출발 전', type: 'rest', title: '공항 식사 · 수유', desc: '보안검색 전에 아기 식사와 기저귀 교환\n면세 쇼핑은 탑승 시각을 확인한 뒤 짧게' },
-          { time: '예약 항공편', type: 'flight', title: '후쿠오카 → 부산', desc: '편명·출발 시각·수하물 허용량은 e-ticket에서 확인\n보조배터리는 위탁하지 않고 기내 휴대' }
+          { time: '07:00–08:00', type: 'meal', title: '호텔 조식 · 최종 점검', desc: '여권·지갑·휴대폰·충전기·아기용품 확인\n객실 서랍과 욕실에 두고 온 물건 없는지 확인' },
+          { time: '08:30', type: 'hotel', title: '체크아웃', desc: '공식 체크아웃은 11:00이지만 항공편에 맞춰 일찍 출발\n캐리어 수량과 1인 15kg 위탁수하물 한도 확인' },
+          { time: '08:40–09:10', type: 'transit', title: '호텔 → 후쿠오카공항 T1', desc: '대형 택시 호출 · 목적지는 국제선 터미널 T1\n교통 변수에 대비해 09:10 도착 목표', map: 'https://www.google.com/maps/dir/?api=1&origin=CROSS+LIFE+Hakata+Tenjin&destination=Fukuoka+Airport+International+Terminal&travelmode=driving' },
+          { time: '09:10–11:20', type: 'transit', title: '수하물 위탁 · 출국 수속', desc: '에어부산 카운터 체크인 → 보안검색 → 출국심사\n탑승구를 먼저 확인한 뒤 아기 식사·수유와 짧은 면세 쇼핑' },
+          { time: '11:55–13:00', type: 'flight', title: '에어부산 BX0506 · 후쿠오카→부산', desc: 'FUK T1 → PUS T1 · 직항 1시간 5분\n이코노미 · 1인당 위탁수하물 15kg\n보조배터리는 위탁하지 않고 기내 휴대' }
         ]
       }
     ];
 
     const checklistGroups = [
-      { title: '📄 필수 서류·예약', items: ['성인 4명과 아기 여권 유효기간 확인', '왕복 항공 e-ticket과 수하물 규정 저장', '호텔 예약 바우처와 객실 배정 확인', 'Visit Japan Web 등록 및 QR 캡처', '유후인노모리 왕복 지정석 예약', '여행자보험 가입 및 연락처 저장', '연말연시 영업시간 출발 전 재확인'] },
+      { title: '📄 필수 서류·예약', items: ['성인 4명과 아기 여권 유효기간 확인', '에어부산 BX0509·BX0506 e-ticket 저장', '1인당 위탁수하물 15kg 규정 확인', '컴포트 트윈 금연 2실 예약 바우처 저장', '호텔 체크인 15:00·체크아웃 11:00 확인', 'Visit Japan Web 등록 및 QR 캡처', '유후인노모리 왕복 지정석 예약', '여행자보험 가입 및 연락처 저장', '연말연시 영업시간 출발 전 재확인'] },
       { title: '👶 11개월 아기', items: ['분유·이유식·간식', '젖병·보온병·세척용품', '기저귀·물티슈·방수패드', '가벼운 유모차와 아기띠', '유모차 방한 커버와 아기 담요', '체온계·해열제·상비약', '여벌옷과 지퍼백', '호텔 아기침대·침대가드 확인'] },
       { title: '💳 돈·교통', items: ['해외결제 카드와 예비 카드', '엔화 현금과 동전지갑', '교통계 IC카드 준비', '5명 탑승 대형 택시 호출 방법 확인', '오호리공원 택시비 예산 반영', '유후인 열차표를 오프라인 저장', '카드사 해외결제 알림 설정'] },
       { title: '📱 전자기기', items: ['휴대폰·충전기·케이블', '보조배터리는 기내 휴대', 'eSIM/로밍 개통일 확인', 'Google Maps·번역 앱 설치', '항공·호텔·열차 QR 오프라인 저장', '가족끼리 비상 연락 방법 정하기'] },
       { title: '🧣 겨울 준비', items: ['부모님과 아기 방한 외투', '목도리·장갑·귀마개', '편한 방수 운동화', '접이식 우산', '핫팩과 보습제', '유후인용 여분 양말', '실내외 온도차에 맞춘 겹쳐 입기'] },
-      { title: '🏠 출발 직전', items: ['가스·전기·창문 확인', '여권을 기내 가방에 넣기', '11:30까지 김해공항 도착 동선 확인', '12월 30일 TOFFEE park 19시 영업 확인', '12월 30일 캐널시티 분수쇼 확인', '12월 31일 텐진 식당·몽벨 영업 확인', '1월 1일 유후인노모리 운행 확인', '1월 2일 사시스 특별 영업·유모차 반입 확인', '귀국편 출발 시각과 공항 이동 예약 확인'] }
+      { title: '🏠 출발 직전', items: ['가스·전기·창문 확인', '여권을 기내 가방에 넣기', '12월 30일 11:30까지 김해공항 T1 도착', '12월 30일 TOFFEE park 19시 영업 확인', '12월 30일 캐널시티 분수쇼 확인', '12월 31일 텐진 식당·몽벨 영업 확인', '1월 1일 유후인노모리 운행 확인', '1월 2일 사시스 특별 영업·유모차 반입 확인', '1월 3일 08:30 체크아웃·09:10 공항 도착 확인'] }
     ];
 
     let selectedDay = 1;
