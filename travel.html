@@ -391,6 +391,15 @@
     .taxi-screen .ko { font-size: 13px; color: #64748b; }
     .taxi-screen button { align-self: center; border: 0; border-radius: 999px; padding: 12px 26px; background: #111827; color: white; font-weight: 900; cursor: pointer; }
 
+    .icon-tile.ig { position: relative; border: 0; padding: 0; cursor: pointer; }
+    .icon-tile.ig::after { content: "📷"; position: absolute; right: -4px; bottom: -4px; width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; background: linear-gradient(135deg, #e1306c, #833ab4); font-size: 11px; box-shadow: 0 0 0 2px white; }
+    .mini-button.ig-btn { border-color: #fbcfe8; color: #be185d; background: #fdf2f8; }
+    .sns-actions { display: flex; flex-direction: column; gap: 6px; align-items: stretch; }
+    .sns-photo { min-height: 30px; padding: 6px 10px; border: 1px solid #fbcfe8; border-radius: 999px; color: #be185d; background: #fdf2f8; font-size: 10px; font-weight: 900; cursor: pointer; white-space: nowrap; }
+    .modal-embed { display: none; padding: 12px 12px 0; }
+    .modal-embed.show { display: block; }
+    .modal-embed iframe { display: block; width: 100%; height: min(560px, 62vh); border: 0; border-radius: 12px; background: #f8fafc; }
+    .modal-embed .ig-open { display: block; margin-top: 8px; text-align: center; color: #be185d; font-size: 12px; font-weight: 900; text-decoration: none; }
     .credit-list { margin: 6px 0 0; padding-left: 18px; }
     .credit-list li { font-size: 11px; }
     .credit-list a { color: #1d4ed8; }
@@ -486,7 +495,7 @@
 
         <article class="info-card">
           <h3>🍣 식사 후보</h3>
-          <p><span class="label">12/30 저녁</span> 우오덴(1순위, 18:00 사전 예약) 또는 원조 하카타 멘타이쥬(2순위) → TOFFEE park → 나카스강 → 20시 캐널시티 분수쇼. 이후 스미게키조 무사시자는 선택 일정으로, 아기 동반 입장 가능 여부를 미리 확인한 뒤 체력이 남을 때만 들릅니다.</p>
+          <p><span class="label">12/30 저녁</span> 원조 하카타 멘타이쥬(1순위, 18:00 웹 예약) 또는 우오덴(2순위) → TOFFEE park → 나카스강 → 20시 캐널시티 분수쇼. 이후 스미게키조 무사시자는 선택 일정으로, 아기 동반 입장 가능 여부를 미리 확인한 뒤 체력이 남을 때만 들릅니다.</p>
           <p><span class="label">12/31 텐진 점심</span> ① 효탄 노 카이텐 스시 ② 신신라멘 텐진 파르코점 ③ 돈테키 부타야 식당 텐진점(과거 연말연시 휴무 기록이 있어 3순위)</p>
           <p><span class="label">12/31 저녁</span> 텐진 쇼핑을 마친 뒤 17:10 이나바쵸 잇케이에서 아부리 모츠나베와 하카타 향토요리. 연말 특별 영업과 테이블석을 예약 확인합니다.</p>
           <p><span class="label">1/1 유후인</span> 요모야마 등 유노츠보·긴린코 동선 안 식당을 선택합니다.</p>
@@ -498,7 +507,7 @@
 
         <article class="info-card">
           <h3>🛍️ 쇼핑·카페</h3>
-          <p><span class="label">빵스톡 텐진점</span> 12월 30일 체크인 뒤 우오덴으로 가는 길에 조건부 방문. 연말 휴무이거나 빵이 매진되면 바로 우오덴으로 이동합니다.</p>
+          <p><span class="label">빵스톡 텐진점</span> 12월 30일 체크인 뒤 저녁 식당으로 가는 길에 조건부 방문. 연말 휴무이거나 빵이 매진되면 바로 원조 하카타 멘타이쥬로 이동합니다.</p>
           <p><span class="label">오호리공원</span> 12월 31일 오전 스미요시 신사를 먼저 참배한 뒤 택시로 이동해 공원 산책과 스타벅스 휴식. 비가 오면 산책은 빼고 스타벅스만 짧게 들른 뒤 텐진 지하상가로 일찍 이동합니다.</p>
           <p><span class="label">텐진</span> 케고신사 → 텐진 상권 → 몽벨 매장을 한 동선으로 연결합니다.</p>
           <p><span class="label">1/2 효율 동선</span> 라라포트 3층에서 아카짱혼포 → MARKEY'S → BREEZE를 한 번에 보고, 11:30 이른 점심 뒤 2층 쿠라시키 커피점에서 쉽니다.</p>
@@ -544,7 +553,7 @@
 
         <article class="info-card">
           <h3>📷 사진 출처</h3>
-          <p>아래 사진은 위키미디어 공용(Wikimedia Commons)의 자유 라이선스 사진입니다.</p>
+          <p>아래 사진은 위키미디어 공용(Wikimedia Commons)과 Flickr의 자유 라이선스(CC) 사진입니다.</p>
           <ul class="credit-list" id="photo-credits"></ul>
         </article>
       </div>
@@ -585,13 +594,13 @@
         <button class="copy-dm" id="copy-dm" type="button">📋 일본어 문의문 복사</button>
       </div>
 
-      <p class="sns-note">⚠️ 우오덴은 현재 일정에 있는 서나카스점 계정으로 연결했습니다. 효탄스시는 “ソラリアステージB2Fの回転寿司店”, Shin-Shin과 쿠라시키 커피는 해당 지점명을 DM에 꼭 적으세요.</p>
+      <p class="sns-note">⚠️ 원조 하카타 멘타이쥬와 우오덴은 현재 일정에 있는 서나카스점 계정으로 연결했습니다. 효탄스시는 “ソラリアステージB2Fの回転寿司店”, Shin-Shin과 쿠라시키 커피는 해당 지점명을 DM에 꼭 적으세요.</p>
 
       <article class="sns-day">
         <div class="sns-day-head"><h3>12월 30일 (수)</h3><span>나카스 · 첫날 저녁</span></div>
         <div class="sns-place"><div class="sns-place-name"><strong>빵스톡 텐진점 · 조건부 방문</strong><small>stock パンストック天神店 · 西中洲6-17</small><span class="sns-handle">@pain_stock_tenjin</span></div><a class="sns-link" href="https://www.instagram.com/pain_stock_tenjin/" target="_blank" rel="noopener">인스타 열기 ↗</a></div>
-        <div class="sns-place"><div class="sns-place-name"><strong>우오덴 · 1순위</strong><small>博多シーフードうお田 · 西中洲店</small><span class="sns-handle">@hakata_seafood_uoden</span></div><a class="sns-link" href="https://www.instagram.com/hakata_seafood_uoden/" target="_blank" rel="noopener">인스타 열기 ↗</a></div>
-        <div class="sns-place"><div class="sns-place-name"><strong>원조 하카타 멘타이쥬 · 2순위</strong><small>元祖博多めんたい重 · 西中洲店</small><span class="sns-handle">@ganso_hakata_mentaiju</span></div><a class="sns-link" href="https://www.instagram.com/ganso_hakata_mentaiju/" target="_blank" rel="noopener">인스타 열기 ↗</a></div>
+        <div class="sns-place"><div class="sns-place-name"><strong>원조 하카타 멘타이쥬 · 1순위</strong><small>元祖博多めんたい重 · 西中洲店</small><span class="sns-handle">@ganso_hakata_mentaiju</span></div><a class="sns-link" href="https://www.instagram.com/ganso_hakata_mentaiju/" target="_blank" rel="noopener">인스타 열기 ↗</a></div>
+        <div class="sns-place"><div class="sns-place-name"><strong>우오덴 · 2순위</strong><small>博多シーフードうお田 · 西中洲店</small><span class="sns-handle">@hakata_seafood_uoden</span></div><a class="sns-link" href="https://www.instagram.com/hakata_seafood_uoden/" target="_blank" rel="noopener">인스타 열기 ↗</a></div>
         <div class="sns-place"><div class="sns-place-name"><strong>TOFFEE park · 카페</strong><small>福岡・西中洲店 · 19시 영업 확인</small><span class="sns-handle">@toffeepark_fukuoka</span></div><a class="sns-link" href="https://www.instagram.com/toffeepark_fukuoka/" target="_blank" rel="noopener">인스타 열기 ↗</a></div>
         <div class="sns-place"><div class="sns-place-name"><strong>스미극장 무사시자 · 선택</strong><small>すみ劇場 むさし坐</small><span class="sns-handle">@musasiza</span></div><a class="sns-link" href="https://www.instagram.com/musasiza/" target="_blank" rel="noopener">인스타 열기 ↗</a></div>
       </article>
@@ -632,6 +641,7 @@
     <div class="modal">
       <div class="modal-head"><h3 id="modal-title"></h3><button class="close" id="modal-close" aria-label="닫기">✕</button></div>
       <img class="modal-img" id="modal-img" alt="">
+      <div class="modal-embed" id="modal-embed"></div>
       <div class="modal-body" id="modal-body"></div>
     </div>
   </div>
@@ -674,7 +684,9 @@
       yufuinst: {"name": "유후인역", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Yufuin_Station_3.JPG/250px-Yufuin_Station_3.JPG", "large": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Yufuin_Station_3.JPG", "page": "https://commons.wikimedia.org/wiki/File:Yufuin_Station_3.JPG", "artist": "MK Products at Japanese Wikipedia", "license": "CC BY-SA 3.0"},
       yunotsubo: {"name": "유노츠보 거리", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Mount_Yufudake_from_Yunotsubo_Street.JPG/250px-Mount_Yufudake_from_Yunotsubo_Street.JPG", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Mount_Yufudake_from_Yunotsubo_Street.JPG/960px-Mount_Yufudake_from_Yunotsubo_Street.JPG", "page": "https://commons.wikimedia.org/wiki/File:Mount_Yufudake_from_Yunotsubo_Street.JPG", "artist": "そらみみ", "license": "CC BY-SA 4.0"},
       floral: {"name": "유후인 플로랄빌리지", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Yufuin_Floral_Village.jpg/250px-Yufuin_Floral_Village.jpg", "large": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Yufuin_Floral_Village.jpg", "page": "https://commons.wikimedia.org/wiki/File:Yufuin_Floral_Village.jpg", "artist": "Bpcon98", "license": "CC0"},
-      kinrin: {"name": "긴린코 호수", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Lake_Kinrin_with_Morning_fog.jpg/250px-Lake_Kinrin_with_Morning_fog.jpg", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Lake_Kinrin_with_Morning_fog.jpg/960px-Lake_Kinrin_with_Morning_fog.jpg", "page": "https://commons.wikimedia.org/wiki/File:Lake_Kinrin_with_Morning_fog.jpg", "artist": "Tzu-hsun, Hsu", "license": "CC BY-SA 4.0"}
+      kinrin: {"name": "긴린코 호수", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Lake_Kinrin_with_Morning_fog.jpg/250px-Lake_Kinrin_with_Morning_fog.jpg", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Lake_Kinrin_with_Morning_fog.jpg/960px-Lake_Kinrin_with_Morning_fog.jpg", "page": "https://commons.wikimedia.org/wiki/File:Lake_Kinrin_with_Morning_fog.jpg", "artist": "Tzu-hsun, Hsu", "license": "CC BY-SA 4.0"},
+      lalaport: {"name": "라라포트 후쿠오카 · 건물과 실물대 건담", "thumb": "https://live.staticflickr.com/65535/54402337684_8db435581e_n.jpg", "large": "https://live.staticflickr.com/65535/54402337684_8db435581e_b.jpg", "page": "https://www.flickr.com/photos/60198488@N06/54402337684", "artist": "kxz Chen", "license": "CC BY-SA 2.0", "source": "Flickr"},
+      gundam: {"name": "라라포트 후쿠오카 실물대 νガンダム", "thumb": "https://live.staticflickr.com/65535/54401281372_3e6b154dc9_n.jpg", "large": "https://live.staticflickr.com/65535/54401281372_3e6b154dc9_b.jpg", "page": "https://www.flickr.com/photos/60198488@N06/54401281372", "artist": "kxz Chen", "license": "CC BY-SA 2.0", "source": "Flickr"}
     };
 
     // 택시 기사님께 보여줄 일본어 목적지
@@ -682,6 +694,7 @@
       hotel: { ja: 'クロスライフ博多天神', addr: '', ko: '크로스라이프 하카타 텐진 (호텔)' },
       fukair: { ja: '福岡空港 国際線ターミナル', addr: '', ko: '후쿠오카공항 국제선 터미널' },
       painstock: { ja: 'パンストック 天神店', addr: '福岡市中央区西中洲6-17', ko: '빵스톡 텐진점' },
+      mentaiju: { ja: '元祖博多めんたい重 西中洲店', addr: '', ko: '원조 하카타 멘타이쥬 (니시나카스)' },
       uoden: { ja: '博多シーフード うお田 西中洲店', addr: '福岡市中央区西中洲4-17', ko: '우오덴 서나카스점' },
       sumiyoshi: { ja: '住吉神社', addr: '福岡市博多区住吉3-1-51', ko: '스미요시 신사' },
       ohori: { ja: 'スターバックス 福岡大濠公園店', addr: '', ko: '오호리공원 스타벅스' },
@@ -703,48 +716,48 @@
       '공항 → 호텔 이동': { place: 'hotel' },
       '체크인 · 짐 정리': { badge: 'confirmed' },
       '호텔 → 빵스톡 텐진점': { place: 'painstock' },
-      '빵스톡 텐진점 · 영업 시 방문': { badge: 'check', icon: '🥐', place: 'painstock' },
-      '우오덴 저녁 · 1순위': { badge: 'reserve', icon: '🐟', place: 'uoden' },
-      'TOFFEE park': { badge: 'check', icon: '🍮' },
+      '빵스톡 텐진점 · 영업 시 방문': { badge: 'check', icon: '🥐', place: 'painstock', ig: 'painstock' },
+      '원조 하카타 멘타이쥬 저녁 · 1순위': { badge: 'reserve', icon: '🍚', place: 'mentaiju', ig: 'mentaiju' },
+      'TOFFEE park': { badge: 'check', icon: '🍮', ig: 'toffee' },
       '나카스강 야경 산책': { photo: 'nakasu' },
       '캐널시티 야간 분수쇼': { photo: 'canal', badge: 'check' },
-      '선택 · 스미게키조 무사시자 술 한잔': { badge: 'option', icon: '🍶' },
+      '선택 · 스미게키조 무사시자 술 한잔': { badge: 'option', icon: '🍶', ig: 'musasiza' },
       '호텔 → 스미요시 신사': { place: 'sumiyoshi' },
       '스미요시 신사 오전 참배': { photo: 'sumiyoshi', place: 'sumiyoshi' },
       '스미요시 신사 → 오호리공원': { place: 'ohori' },
       '오호리공원 & 스타벅스': { photo: 'ohori' },
       '오호리공원 → 텐진': { place: 'solaria' },
-      '텐진 점심 · 현장 선택': { badge: 'check', icon: '🍣', place: 'solaria' },
+      '텐진 점심 · 현장 선택': { badge: 'check', icon: '🍣', place: 'solaria', ig: 'hyoutan' },
       '케고신사': { photo: 'kego' },
       '텐진 쇼핑 · 몽벨': { photo: 'tenjin', badge: 'check' },
       '카페에서 짧게 휴식': { icon: '☕' },
       '텐진 쇼핑 → 이나바쵸 잇케이': { place: 'ikkei' },
-      '이나바쵸 잇케이 · 이른 저녁': { badge: 'reserve', icon: '🍲', place: 'ikkei' },
+      '이나바쵸 잇케이 · 이른 저녁': { badge: 'reserve', icon: '🍲', place: 'ikkei', ig: 'ikkei' },
       '이나바쵸 잇케이 → 호텔 복귀': { place: 'hotel' },
       '호텔 → 하카타역': { badge: 'reserve', critical: true, place: 'hakata' },
       '유후인노모리 탑승 준비': { card: true, photo: 'hakata' },
       '유후인노모리 1호 · 하카타→유후인': { card: true, photo: 'yufuinnomori', badge: 'reserve', critical: true },
       '유후인역 · 화장실 점검': { photo: 'yufuinst' },
       '유노츠보 거리': { photo: 'yunotsubo' },
-      '유후인 점심 · 요모야마 후보': { badge: 'check', icon: '🍢' },
+      '유후인 점심 · 요모야마 후보': { badge: 'check', icon: '🍢', ig: 'yomoyama' },
       '플로랄빌리지': { photo: 'floral' },
       '긴린코 호수': { photo: 'kinrin', critical: true },
       '긴린코 → 유후인역': { critical: true, place: 'yufuinst' },
       '유후인역 · 귀환 준비': {},
       '유후인노모리 4호 · 유후인→하카타': { card: true, photo: 'yufuinnomori', badge: 'reserve', critical: true },
       '하카타역 → 오오이시 스미요시점': { place: 'oishi' },
-      '오오이시 스미요시점 · 저녁 후보': { badge: 'reserve', icon: '🍲', place: 'oishi' },
+      '오오이시 스미요시점 · 저녁 후보': { badge: 'reserve', icon: '🍲', place: 'oishi', ig: 'oishi' },
       '오오이시 → 호텔 복귀': { place: 'hotel' },
       '호텔 → 라라포트': { place: 'lalaport' },
-      "라라포트 · 아카짱혼포 → MARKEY'S → BREEZE": { icon: '🧸' },
+      "라라포트 · 아카짱혼포 → MARKEY'S → BREEZE": { photo: 'lalaport' },
       '라라포트 이른 점심': { icon: '🍱' },
       '남은 쇼핑 마무리': { icon: '🛍️' },
-      '라라포트 2층 · 쿠라시키 커피점': { badge: 'check', icon: '☕' },
-      '실물대 건담 짧게 관람': { icon: '🤖' },
+      '라라포트 2층 · 쿠라시키 커피점': { badge: 'check', icon: '☕', ig: 'kurashiki' },
+      '실물대 건담 짧게 관람': { photo: 'gundam' },
       '라라포트 → 호텔': { place: 'hotel' },
       '호텔 → 사시스 텐진점': { place: 'sashisu' },
       '사시스 텐진점 대기': {},
-      '스시사카바 사시스 텐진점': { badge: 'check', icon: '🍣', place: 'sashisu' },
+      '스시사카바 사시스 텐진점': { badge: 'check', icon: '🍣', place: 'sashisu', ig: 'sashisu' },
       '체크아웃': { critical: true },
       '호텔 → 후쿠오카공항 국제선': { badge: 'reserve', critical: true, place: 'fukair' },
       '수하물 위탁 · 출국 수속': { card: true, photo: 'fukair', critical: true },
@@ -753,11 +766,28 @@
 
     // 날짜별 핵심 3줄 (빨간 시간 = 놓치면 안 되는 시간)
     const dayKeys = {
-      1: [['11:30', '김해공항 국제선 도착 · 14:00 BX0509 출발'], ['18:00', '우오덴 저녁 (예약)'], ['20:00', '캐널시티 분수쇼']],
+      1: [['11:30', '김해공항 국제선 도착 · 14:00 BX0509 출발'], ['18:00', '원조 하카타 멘타이쥬 저녁 (예약)'], ['20:00', '캐널시티 분수쇼']],
       2: [['09:40', '스미요시 신사 → 10:30 오호리공원'], ['12:30', '텐진 점심: 효탄 → 신신 → 돈테키'], ['17:10', '이나바쵸 잇케이 저녁 (예약)']],
       3: [['08:05', '대형 택시 → 09:17 유후인노모리 1호'], ['14:45', '긴린코 출발 · 15:15까지 유후인역'], ['15:56', '4호 귀환 → 18:30 오오이시']],
       4: [['10:30', '라라포트 도착 · 코인로커부터'], ['11:30', '혼잡 전 이른 점심'], ['17:10', '사시스 텐진점 대기 → 17:30 입장']],
       5: [['08:40', '대형 택시로 공항 출발'], ['11:05', '에어부산 체크인 마감'], ['11:55', 'BX0506 출발 → 13:00 부산']]
+    };
+
+    // 식당 인스타그램 공식 퍼가기(임베드): 사진은 인스타그램에서 직접 표시됩니다
+    const igPosts = {
+      painstock: { handle: 'pain_stock_tenjin', code: 'DflAcvpBc7S', name: '빵스톡 텐진점' },
+      mentaiju: { handle: 'ganso_hakata_mentaiju', code: 'DfYgHRej8pt', name: '원조 하카타 멘타이쥬' },
+      toffee: { handle: 'toffeepark_fukuoka', code: 'DfB8KVEJ4ot', name: 'TOFFEE park' },
+      musasiza: { handle: 'musasiza', code: 'DbPzd-LhfW8', name: '스미게키조 무사시자' },
+      hyoutan: { handle: 'hyoutan_sushi', code: 'DVaI96ujzml', name: '효탄 스시' },
+      shinshin: { handle: 'hakata_shinshin', code: 'DflNqDyn_Qo', name: '하카타 라멘 Shin-Shin' },
+      tonteki: { handle: 'tontekibutaya_fukuokatenjin', code: 'DXYnMKgiYsl', name: '돈테키 부타야' },
+      ikkei: { handle: 'inabachou.ikkei', code: 'C8n8Jsby3G0', name: '이나바쵸 잇케이' },
+      yomoyama: { handle: 'yufuin_yomoyama', code: 'C-RRjtRS0sF', name: '유후인 요모야마' },
+      oishi: { handle: 'motsunabe_oishi', code: 'DYodb3_RqTJ', name: '오오이시' },
+      kurashiki: { handle: 'fukuokasu', code: 'DcN9Kvmxl57', name: '쿠라시키 커피 라라포트 후쿠오카점', note: '라라포트 후쿠오카점(2층) 매장을 소개한 영상입니다. 재생하면 매장 카운터·사이폰·좌석 분위기가 나와요.' },
+      sashisu: { handle: 'sashisu_tenjin', code: 'CcmEU1cJ96j', name: '사시스 텐진점' },
+      bakuro: { handle: 'bakuro.hakata', code: 'Dds1FjbzHiK', name: '야키니쿠노 바쿠로' }
     };
 
     const tripDates = { 1: '2026-12-30', 2: '2026-12-31', 3: '2027-01-01', 4: '2027-01-02', 5: '2027-01-03' };
@@ -843,18 +873,18 @@
         day: 1,
         date: '12월 30일 (수)',
         label: '1일차 · 나카스',
-        route: '부산 → 후쿠오카 → 호텔 → 빵스톡·우오덴 → 캐널시티',
-        note: '빵스톡 텐진점은 12월 30일 영업과 재고가 확인될 때만 들릅니다. 입국이 늦거나 매진·휴무이면 건너뛰고 18시 우오덴으로 바로 이동하며, 부모님이나 아기가 피곤하면 밤 술자리는 생략하세요.',
+        route: '부산 → 후쿠오카 → 호텔 → 빵스톡·멘타이쥬 → 캐널시티',
+        note: '빵스톡 텐진점은 12월 30일 영업과 재고가 확인될 때만 들릅니다. 입국이 늦거나 매진·휴무이면 건너뛰고 18시 원조 하카타 멘타이쥬로 바로 이동하며, 부모님이나 아기가 피곤하면 밤 술자리는 생략하세요.',
         events: [
           { time: '11:30', type: 'transit', title: '김해공항 국제선 도착', desc: '성인 4명·11개월 아기 수속 시간 확보\n여권·e-ticket·아기용품은 한 가방에 정리' },
           { time: '14:00–15:00', type: 'flight', title: '에어부산 BX0509 · 부산→후쿠오카', desc: '김해공항 국제선 → 후쿠오카공항 국제선 터미널 · 직항 1시간\n이코노미 · 성인 1인당 위탁수하물 15kg · 아기 수하물은 운임별 확인', map: 'https://www.google.com/maps/search/?api=1&query=Fukuoka+Airport+International+Terminal' },
           { time: '15:00–16:10', type: 'transit', title: '입국 수속 · 짐 찾기', desc: '후쿠오카공항 국제선 터미널 1층 도착\n성인 4명·11개월 아기 입국 수속과 수하물 수령 시간 확보' },
           { time: '16:10–16:40', type: 'transit', title: '공항 → 호텔 이동', desc: '성인 4명과 아기, 캐리어를 고려해 대형 택시 우선\n차량이 없으면 일반 택시 2대로 나눠 이동', map: 'https://www.google.com/maps/dir/?api=1&origin=Fukuoka+Airport+International+Terminal&destination=CROSS+LIFE+Hakata+Tenjin&travelmode=driving' },
           { time: '16:40–17:20', type: 'hotel', title: '체크인 · 짐 정리', desc: '컴포트 트윈 금연 2실 · 성인 4명\n아기침대·침대가드와 다음 날 조식 시간을 프런트에서 확인', map: 'https://www.google.com/maps/search/?api=1&query=CROSS+LIFE+Hakata+Tenjin' },
-          { time: '17:20–17:35', type: 'transit', title: '호텔 → 빵스톡 텐진점', desc: '니시나카스 방향으로 도보 또는 짧은 택시 이동\n도착이 늦으면 빵스톡을 생략하고 우오덴으로 바로 이동', map: 'https://www.google.com/maps/dir/?api=1&origin=CROSS+LIFE+Hakata+Tenjin&destination=Pain+Stock+Tenjin&travelmode=walking' },
-          { time: '17:35–17:50', type: 'cafe', title: '빵스톡 텐진점 · 영업 시 방문', desc: 'stock パンストック天神店 · 西中洲6-17\n명란 프랑스 등 포장 위주로 빠르게 구매\n12월 30일 휴무·매진이면 미련 없이 바로 우오덴으로 이동', map: 'https://www.google.com/maps/search/?api=1&query=Pain+Stock+Tenjin', detail: '빵스톡 텐진점 조건부 방문\n\n• 공식 계정: @pain_stock_tenjin\n• 일반 영업: 08:00–19:00, 빵 소진 시 조기 종료\n• 과거 연말에는 12월 30일부터 휴무한 사례가 있음\n• 방문 전 인스타그램 DM으로 12월 30일 영업 여부 확인\n• 우오덴과 같은 니시나카스 권역이라 문을 닫았으면 바로 다음 일정으로 이동하세요.' },
-          { time: '18:00–19:00', type: 'meal', title: '우오덴 저녁 · 1순위', desc: '18:00 성인 4명·아기 1명 테이블석 사전 예약(TableCheck)\n만석이거나 대기가 길면 원조 하카타 멘타이쥬를 2순위로 선택', map: 'https://www.google.com/maps/search/?api=1&query=Uoden+Fukuoka', detail: '첫날 저녁 후보\n\n1순위: 우오덴\n2순위: 원조 하카타 멘타이쥬\n\n두 곳 모두 니시나카스 동선이라 이후 TOFFEE park와 나카스강으로 연결하기 좋습니다. 아기와 부모님이 함께하므로 30분 이상 대기하면 2순위로 이동하세요.' },
-          { time: '19:00–19:40', type: 'cafe', title: 'TOFFEE park', desc: '우오덴에서 도보 약 3–5분 · 강변 카페\n저녁 일찍 닫을 수 있어 당일 19시 영업 여부 확인\n문을 닫았다면 외관만 보고 나카스강으로 이동', map: 'https://www.google.com/maps/dir/?api=1&origin=Uoden+Fukuoka&destination=TOFFEE+park+Fukuoka&travelmode=walking' },
+          { time: '17:20–17:35', type: 'transit', title: '호텔 → 빵스톡 텐진점', desc: '니시나카스 방향으로 도보 또는 짧은 택시 이동\n도착이 늦으면 빵스톡을 생략하고 멘타이쥬로 바로 이동', map: 'https://www.google.com/maps/dir/?api=1&origin=CROSS+LIFE+Hakata+Tenjin&destination=Pain+Stock+Tenjin&travelmode=walking' },
+          { time: '17:35–17:50', type: 'cafe', title: '빵스톡 텐진점 · 영업 시 방문', desc: 'stock パンストック天神店 · 西中洲6-17\n명란 프랑스 등 포장 위주로 빠르게 구매\n12월 30일 휴무·매진이면 미련 없이 바로 멘타이쥬로 이동', map: 'https://www.google.com/maps/search/?api=1&query=Pain+Stock+Tenjin', detail: '빵스톡 텐진점 조건부 방문\n\n• 공식 계정: @pain_stock_tenjin\n• 일반 영업: 08:00–19:00, 빵 소진 시 조기 종료\n• 과거 연말에는 12월 30일부터 휴무한 사례가 있음\n• 방문 전 인스타그램 DM으로 12월 30일 영업 여부 확인\n• 멘타이쥬·우오덴과 같은 니시나카스 권역이라 문을 닫았으면 바로 다음 일정으로 이동하세요.' },
+          { time: '18:00–19:00', type: 'meal', title: '원조 하카타 멘타이쥬 저녁 · 1순위', desc: '元祖博多めんたい重 · 西中洲店 · 명란 덮밥(멘타이쥬) 전문점\n18:00 성인 4명·아기 1명 웹 예약(17시 이후 예약 가능)\n예약 없이 가면 30분~2시간 대기할 수 있음\n만석이거나 대기가 길면 2순위 우오덴으로 이동', map: 'https://www.google.com/maps/search/?api=1&query=Ganso+Hakata+Mentaiju', detail: '첫날 저녁 후보\n\n1순위: 원조 하카타 멘타이쥬\n• 공식 계정: @ganso_hakata_mentaiju\n• 17시 이후 웹 예약 가능, 예약 없으면 대기가 길 수 있음\n\n2순위: 우오덴 서나카스점\n• TableCheck로 예약 가능\n• 공식 계정: @hakata_seafood_uoden\n\n두 곳 모두 니시나카스 동선이라 이후 TOFFEE park와 나카스강으로 연결하기 좋습니다. 아기와 부모님이 함께하므로 30분 이상 대기하면 2순위로 이동하세요.' },
+          { time: '19:00–19:40', type: 'cafe', title: 'TOFFEE park', desc: '저녁 식당에서 도보 약 5분 · 강변 카페\n저녁 일찍 닫을 수 있어 당일 19시 영업 여부 확인\n문을 닫았다면 외관만 보고 나카스강으로 이동', map: 'https://www.google.com/maps/dir/?api=1&origin=Ganso+Hakata+Mentaiju&destination=TOFFEE+park+Fukuoka&travelmode=walking' },
           { time: '19:40–20:00', type: 'sight', title: '나카스강 야경 산책', desc: 'TOFFEE park에서 캐널시티 방향으로 짧게 이동\n겨울 강바람이 강하면 산책 시간을 줄이기', map: 'https://www.google.com/maps/dir/?api=1&origin=TOFFEE+park+Fukuoka&destination=Canal+City+Hakata&travelmode=walking' },
           { time: '20:00–20:20', type: 'view', title: '캐널시티 야간 분수쇼', desc: '공유 자료 추천은 20시 전후 아쿠아 파노라마\n12월 30일 실제 공연 시각은 당일 안내판에서 확인', map: 'https://www.google.com/maps/search/?api=1&query=Canal+City+Hakata' },
           { time: '20:30–21:30', type: 'meal', title: '선택 · 스미게키조 무사시자 술 한잔', desc: '선택 일정 · 이동한 첫날 밤이라 아기와 부모님 상태가 좋을 때만\n아기 동반 입장·흡연 여부를 미리 확인하고, 어렵다면 아기와 부모님은 호텔로 먼저 복귀\n피곤하면 편의점에서 가볍게 사서 호텔에서 대체', map: 'https://www.google.com/maps/search/?api=1&query=Sumigekijo+Musashiza+Fukuoka' },
@@ -946,7 +976,7 @@
     ];
 
     const checklistGroups = [
-      { title: '📄 필수 서류·예약', items: ['성인 4명과 아기 여권 유효기간 확인', '에어부산 BX0509·BX0506 e-ticket 저장', '성인 1인당 위탁수하물 15kg 규정 확인', '컴포트 트윈 금연 2실 예약 바우처 저장', '호텔 체크인 15:00·체크아웃 11:00 확인', 'Visit Japan Web 등록 및 QR 캡처', '12월 1일 10:00 유후인노모리 1호·4호 왕복 지정석 예약', '유후인노모리 호차·좌석번호 오프라인 저장', '여행자보험 가입 및 연락처 저장', '연말연시 영업시간 출발 전 재확인', '항공권 운임 종류와 아기 무료 수하물(10kg 여부)·유모차 위탁 확인', '12월 30일 18:00 우오덴 성인 4명·아기 1명 예약', '1월 1일 08:05 호텔→하카타역 대형 택시 예약', '1월 3일 08:40 호텔→공항 대형 택시 예약'] },
+      { title: '📄 필수 서류·예약', items: ['성인 4명과 아기 여권 유효기간 확인', '에어부산 BX0509·BX0506 e-ticket 저장', '성인 1인당 위탁수하물 15kg 규정 확인', '컴포트 트윈 금연 2실 예약 바우처 저장', '호텔 체크인 15:00·체크아웃 11:00 확인', 'Visit Japan Web 등록 및 QR 캡처', '12월 1일 10:00 유후인노모리 1호·4호 왕복 지정석 예약', '유후인노모리 호차·좌석번호 오프라인 저장', '여행자보험 가입 및 연락처 저장', '연말연시 영업시간 출발 전 재확인', '항공권 운임 종류와 아기 무료 수하물(10kg 여부)·유모차 위탁 확인', '12월 30일 18:00 원조 하카타 멘타이쥬 성인 4명·아기 1명 웹 예약', '1월 1일 08:05 호텔→하카타역 대형 택시 예약', '1월 3일 08:40 호텔→공항 대형 택시 예약'] },
       { title: '👶 11개월 아기', items: ['분유·이유식·간식', '젖병·보온병·세척용품', '기저귀·물티슈·방수패드', '가벼운 유모차와 아기띠', '유모차 방한 커버와 아기 담요', '체온계·해열제·상비약', '여벌옷과 지퍼백', '호텔 아기침대·침대가드 확인'] },
       { title: '💳 돈·교통', items: ['해외결제 카드와 예비 카드', '엔화 현금과 동전지갑', '교통계 IC카드 준비', '5명 탑승 대형 택시 예약·호출 방법 확인', '오호리공원 택시비 예산 반영', '유후인 열차표를 오프라인 저장', '카드사 해외결제 알림 설정'] },
       { title: '📱 전자기기', items: ['휴대폰·충전기·케이블', '보조배터리는 기내 휴대', 'eSIM/로밍 개통일 확인', 'Google Maps·번역 앱 설치', '항공·호텔·열차 QR 오프라인 저장', '#8000·#7119·의료통역 092-645-1081 연락처 저장', '가족끼리 비상 연락 방법 정하기'] },
@@ -975,7 +1005,8 @@
     function actionsHtml(event, x) {
       const detailButton = event.detail ? `<button class="mini-button" type="button" data-title="${esc(event.title)}" data-detail="${encodeURIComponent(event.detail)}">💡 상세</button>` : '';
       const taxiButton = x.place ? `<button class="mini-button taxi" type="button" data-place="${x.place}">🚕 기사님께 보여주기</button>` : '';
-      const html = mapButton(event.map) + detailButton + taxiButton;
+      const igButton = x.ig && igPosts[x.ig] ? `<button class="mini-button ig-btn" type="button" data-ig="${x.ig}">📷 가게 사진</button>` : '';
+      const html = mapButton(event.map) + igButton + detailButton + taxiButton;
       return html ? `<div class="event-actions">${html}</div>` : '';
     }
 
@@ -991,6 +1022,7 @@
         const p = photos[x.photo];
         return `<button class="thumb" type="button" data-photo="${x.photo}" aria-label="${esc(p.name)} 사진 크게 보기"><img src="${p.thumb}" alt="${esc(p.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></button>`;
       }
+      if (x.icon && x.ig && igPosts[x.ig]) return `<button class="icon-tile ig" type="button" data-ig="${x.ig}" aria-label="${esc(igPosts[x.ig].name)} 인스타 사진 보기">${x.icon}</button>`;
       if (x.icon) return `<div class="icon-tile" aria-hidden="true">${x.icon}</div>`;
       return '';
     }
@@ -1102,10 +1134,16 @@
     });
 
     const modalBackdrop = document.getElementById('modal-backdrop');
-    function closeModal() { modalBackdrop.classList.remove('open'); }
+    function closeModal() { modalBackdrop.classList.remove('open'); const e = document.getElementById('modal-embed'); if (e) { e.innerHTML = ''; e.classList.remove('show'); } }
     const modalImg = document.getElementById('modal-img');
-    function openModal(title, body, imgSrc) {
+    const modalEmbed = document.getElementById('modal-embed');
+    function openModal(title, body, imgSrc, igKey) {
       document.getElementById('modal-title').textContent = title;
+      const ig = igKey && igPosts[igKey];
+      if (ig) {
+        modalEmbed.innerHTML = `<iframe src="https://www.instagram.com/p/${ig.code}/embed/" title="${esc(ig.name)} 인스타그램 게시물" loading="lazy" allowtransparency="true" scrolling="no"></iframe><a class="ig-open" href="https://www.instagram.com/${ig.handle}/" target="_blank" rel="noopener">@${ig.handle} 계정에서 사진 더 보기 ↗</a>`;
+        modalEmbed.classList.add('show');
+      } else { modalEmbed.innerHTML = ''; modalEmbed.classList.remove('show'); }
       document.getElementById('modal-body').textContent = body;
       if (imgSrc) { modalImg.src = imgSrc; modalImg.alt = title; modalImg.classList.add('show'); }
       else { modalImg.removeAttribute('src'); modalImg.classList.remove('show'); }
@@ -1114,10 +1152,16 @@
     document.addEventListener('click', (event) => {
       const button = event.target.closest('[data-detail]');
       if (button) { openModal(button.dataset.title, decodeURIComponent(button.dataset.detail)); return; }
+      const igBtn = event.target.closest('[data-ig]');
+      if (igBtn) {
+        const ig = igPosts[igBtn.dataset.ig];
+        openModal(`📷 ${ig.name}`, ig.note || '인스타그램 공식 퍼가기로 가게 게시물을 보여줍니다. 사진이 안 보이면 아래 링크로 계정을 여세요.', null, igBtn.dataset.ig);
+        return;
+      }
       const thumb = event.target.closest('[data-photo]');
       if (thumb) {
         const p = photos[thumb.dataset.photo];
-        openModal(p.name, `사진: ${p.artist} · ${p.license}\n위키미디어 공용`, p.large);
+        openModal(p.name, `사진: ${p.artist} · ${p.license}\n${p.source || '위키미디어 공용'}`, p.large);
         return;
       }
       const taxi = event.target.closest('[data-place]');
@@ -1136,6 +1180,19 @@
     function closeTaxi() { taxiScreen.classList.remove('open'); }
     document.getElementById('taxi-close').addEventListener('click', closeTaxi);
     document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeTaxi(); });
+
+    // 식당 SNS 탭: 인스타 게시물 바로 보기 버튼
+    const igByHandle = Object.fromEntries(Object.entries(igPosts).map(([k, v]) => [v.handle, k]));
+    document.querySelectorAll('#sns-panel .sns-place').forEach(row => {
+      const handle = (row.querySelector('.sns-handle')?.textContent || '').replace('@', '').trim();
+      const link = row.querySelector('.sns-link');
+      if (!link) return;
+      const wrap = document.createElement('div');
+      wrap.className = 'sns-actions';
+      link.replaceWith(wrap);
+      if (igByHandle[handle]) wrap.insertAdjacentHTML('beforeend', `<button class="sns-photo" type="button" data-ig="${igByHandle[handle]}">📷 사진 보기</button>`);
+      wrap.appendChild(link);
+    });
 
     // 사진 출처 목록
     document.getElementById('photo-credits').innerHTML = Object.values(photos).map(p =>
