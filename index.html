@@ -399,6 +399,9 @@
     .modal-embed { display: none; padding: 12px 12px 0; }
     .modal-embed.show { display: block; }
     .modal-embed iframe { display: block; width: 100%; height: min(560px, 62vh); border: 0; border-radius: 12px; background: #f8fafc; }
+    .modal-embed iframe.sv { height: min(420px, 55vh); }
+    .icon-tile.sv { position: relative; border: 0; padding: 0; cursor: pointer; }
+    .icon-tile.sv::after { content: "🏢"; position: absolute; right: -4px; bottom: -4px; width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; background: #2563eb; font-size: 11px; box-shadow: 0 0 0 2px white; }
     .modal-embed .ig-open { display: block; margin-top: 8px; text-align: center; color: #be185d; font-size: 12px; font-weight: 900; text-decoration: none; }
     .credit-list { margin: 6px 0 0; padding-left: 18px; }
     .credit-list li { font-size: 11px; }
@@ -701,7 +704,8 @@
       kinrin: {"name": "긴린코 호수", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Lake_Kinrin_with_Morning_fog.jpg/250px-Lake_Kinrin_with_Morning_fog.jpg", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Lake_Kinrin_with_Morning_fog.jpg/960px-Lake_Kinrin_with_Morning_fog.jpg", "page": "https://commons.wikimedia.org/wiki/File:Lake_Kinrin_with_Morning_fog.jpg", "artist": "Tzu-hsun, Hsu", "license": "CC BY-SA 4.0"},
       lalaport: {"name": "라라포트 후쿠오카 · 건물과 실물대 건담", "thumb": "https://live.staticflickr.com/65535/54402337684_8db435581e_n.jpg", "large": "https://live.staticflickr.com/65535/54402337684_8db435581e_b.jpg", "page": "https://www.flickr.com/photos/60198488@N06/54402337684", "artist": "kxz Chen", "license": "CC BY-SA 2.0", "source": "Flickr"},
       gundam: {"name": "라라포트 후쿠오카 실물대 νガンダム", "thumb": "https://live.staticflickr.com/65535/54401281372_3e6b154dc9_n.jpg", "large": "https://live.staticflickr.com/65535/54401281372_3e6b154dc9_b.jpg", "page": "https://www.flickr.com/photos/60198488@N06/54401281372", "artist": "kxz Chen", "license": "CC BY-SA 2.0", "source": "Flickr"},
-      asianart: {"name": "후쿠오카 아시아 미술관 입구 (하카타 리버레인)", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Fukuoka_Asian_Art_Museum_sign.jpg/250px-Fukuoka_Asian_Art_Museum_sign.jpg", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Fukuoka_Asian_Art_Museum_sign.jpg/960px-Fukuoka_Asian_Art_Museum_sign.jpg", "page": "https://commons.wikimedia.org/wiki/File:Fukuoka_Asian_Art_Museum_sign.jpg", "artist": "Geraldshields11", "license": "CC BY-SA 4.0"}
+      asianart: {"name": "후쿠오카 아시아 미술관 입구 (하카타 리버레인)", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Fukuoka_Asian_Art_Museum_sign.jpg/250px-Fukuoka_Asian_Art_Museum_sign.jpg", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Fukuoka_Asian_Art_Museum_sign.jpg/960px-Fukuoka_Asian_Art_Museum_sign.jpg", "page": "https://commons.wikimedia.org/wiki/File:Fukuoka_Asian_Art_Museum_sign.jpg", "artist": "Geraldshields11", "license": "CC BY-SA 4.0"},
+      donki: {"name": "돈키호테 텐진본점 건물 외관", "thumb": "images/donki-tenjin-thumb.jpg", "large": "images/donki-tenjin.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"}
     };
 
     // 택시 기사님께 보여줄 일본어 목적지
@@ -780,7 +784,7 @@
       '호텔 → 사시스 텐진점': { place: 'sashisu' },
       '사시스 텐진점 대기': {},
       '사시스 → 돈키호테 텐진본점': { place: 'donki' },
-      '돈키호테 텐진본점 · 마지막 쇼핑': { icon: '🛒', place: 'donki' },
+      '돈키호테 텐진본점 · 마지막 쇼핑': { icon: '🛒', place: 'donki', sv: 'donki', photo: 'donki' },
       '돈키호테 → 호텔 복귀 · 짐 정리': { place: 'hotel' },
       '스시사카바 사시스 텐진점': { badge: 'check', icon: '🍣', place: 'sashisu', ig: 'sashisu' },
       '체크아웃': { critical: true },
@@ -1037,7 +1041,8 @@
       const detailButton = event.detail ? `<button class="mini-button" type="button" data-title="${esc(event.title)}" data-detail="${encodeURIComponent(event.detail)}">💡 상세</button>` : '';
       const taxiButton = x.place ? `<button class="mini-button taxi" type="button" data-place="${x.place}">🚕 기사님께 보여주기</button>` : '';
       const igButton = x.ig && igPosts[x.ig] ? `<button class="mini-button ig-btn" type="button" data-ig="${x.ig}">📷 가게 사진</button>` : '';
-      const html = mapButton(event.map) + igButton + detailButton + taxiButton;
+      const svButton = x.sv && streetViews[x.sv] ? `<button class="mini-button ig-btn" type="button" data-sv="${x.sv}">🏢 거리뷰</button>` : '';
+      const html = mapButton(event.map) + igButton + svButton + detailButton + taxiButton;
       return html ? `<div class="event-actions">${html}</div>` : '';
     }
 
@@ -1048,11 +1053,16 @@
       return `<p class="event-desc">${head}</p>` + (rest ? `<details class="more"><summary>더보기 ▾</summary><p class="event-desc">${rest}</p></details>` : '');
     }
 
+    const streetViews = {
+      donki: { name: '돈키호테 텐진본점 건물 외관', lat: 33.5863485, lng: 130.3980199, heading: 220, pitch: -15, note: '구글 거리뷰로 본 텐진본점 건물입니다(옛 TSUTAYA 건물, 1층 노란 「驚安の殿堂 ドン・キホーテ」 간판). 화면을 끌면 주변을 둘러볼 수 있어요.' }
+    };
+
     function mediaHtml(event, x) {
       if (x.photo && photos[x.photo]) {
         const p = photos[x.photo];
         return `<button class="thumb" type="button" data-photo="${x.photo}" aria-label="${esc(p.name)} 사진 크게 보기"><img src="${p.thumb}" alt="${esc(p.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></button>`;
       }
+      if (x.icon && x.sv && streetViews[x.sv]) return `<button class="icon-tile sv" type="button" data-sv="${x.sv}" aria-label="${esc(streetViews[x.sv].name)} 보기">${x.icon}</button>`;
       if (x.icon && x.ig && igPosts[x.ig]) return `<button class="icon-tile ig" type="button" data-ig="${x.ig}" aria-label="${esc(igPosts[x.ig].name)} 인스타 사진 보기">${x.icon}</button>`;
       if (x.icon) return `<div class="icon-tile" aria-hidden="true">${x.icon}</div>`;
       return '';
@@ -1189,6 +1199,14 @@
         openModal(`📷 ${ig.name}`, ig.note || '인스타그램 공식 퍼가기로 가게 게시물을 보여줍니다. 사진이 안 보이면 아래 링크로 계정을 여세요.', null, igBtn.dataset.ig);
         return;
       }
+      const svBtn = event.target.closest('[data-sv]');
+      if (svBtn) {
+        const v = streetViews[svBtn.dataset.sv];
+        openModal(`🏢 ${v.name}`, v.note);
+        modalEmbed.innerHTML = `<iframe class="sv" src="https://www.google.com/maps?layer=c&cbll=${v.lat},${v.lng}&cbp=12,${v.heading},0,0,${v.pitch}&output=svembed" title="${esc(v.name)} 구글 거리뷰" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe><a class="ig-open" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${v.lat},${v.lng}&heading=${v.heading}" target="_blank" rel="noopener">구글 지도 거리뷰에서 크게 보기 ↗</a>`;
+        modalEmbed.classList.add('show');
+        return;
+      }
       const thumb = event.target.closest('[data-photo]');
       if (thumb) {
         const p = photos[thumb.dataset.photo];
@@ -1227,7 +1245,7 @@
 
     // 사진 출처 목록
     document.getElementById('photo-credits').innerHTML = Object.values(photos).map(p =>
-      `<li>${p.name} — <a href="${p.page}" target="_blank" rel="noopener">${esc(p.artist)}</a>, ${p.license}</li>`).join('');
+      `<li>${p.name} — ${p.page ? `<a href="${p.page}" target="_blank" rel="noopener">${esc(p.artist)}</a>` : esc(p.artist)}, ${p.license}</li>`).join('');
 
     // 인쇄할 때는 접힌 내용 모두 펼치기
     window.addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => { d.dataset.wasOpen = d.open ? '1' : ''; d.open = true; }));
