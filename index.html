@@ -336,6 +336,65 @@
     .print-button { width: 100%; margin-top: 4px; border: 1px solid #cbd5e1; border-radius: 13px; padding: 11px; color: #334155; background: white; cursor: pointer; font-weight: 800; }
     .smallprint { margin: 14px 4px 0; color: #94a3b8; font-size: 10px; line-height: 1.55; }
 
+    /* ── 가독성 개선: 핵심 요약 · 배지 · 사진 · 이동 줄 · 지금 표시 ── */
+    .dday { display: inline-block; margin-top: 10px; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,.16); color: #fef3c7; font-size: 11px; font-weight: 900; position: relative; z-index: 1; }
+    .day-key { margin: 0 0 12px; padding: 12px 14px; border-radius: 14px; background: white; border: 1px solid var(--line); box-shadow: 0 3px 12px rgba(15,23,42,.05); }
+    .day-key h4 { margin: 0 0 7px; color: var(--navy); font-size: 13px; }
+    .day-key ol { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 6px; }
+    .day-key li { display: grid; grid-template-columns: 54px 1fr; gap: 8px; align-items: baseline; color: #334155; font-size: 12.5px; line-height: 1.45; }
+    .day-key li b { color: var(--red); font-size: 13px; font-variant-numeric: tabular-nums; }
+    .route-note.small { font-size: 11px; }
+
+    .card-top { display: flex; gap: 11px; align-items: flex-start; }
+    .card-main { flex: 1; min-width: 0; }
+    .thumb { flex: 0 0 64px; width: 64px; height: 64px; padding: 0; border: 0; border-radius: 12px; overflow: hidden; background: #e2e8f0; cursor: zoom-in; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .icon-tile { flex: 0 0 56px; width: 56px; height: 56px; display: grid; place-items: center; border-radius: 14px; font-size: 28px; background: color-mix(in srgb, var(--event-color) 12%, white); }
+    .badges { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 10.5px; font-weight: 900; line-height: 1.6; }
+    .badge.reserve { color: #b91c1c; background: #fee2e2; }
+    .badge.check { color: #92400e; background: #fef3c7; }
+    .badge.option { color: #475569; background: #e2e8f0; }
+    .badge.confirmed { color: #166534; background: #dcfce7; }
+    .badge.critical { color: white; background: var(--red); }
+    .event.critical .event-time, .hop.critical .hop-time { color: var(--red); }
+    .event.critical .event-card { box-shadow: 0 0 0 2px rgba(220,38,38,.18), 0 4px 15px rgba(15,23,42,.055); }
+    .more { margin-top: 4px; }
+    .more summary { display: inline-block; color: var(--blue); font-size: 11px; font-weight: 800; cursor: pointer; list-style: none; }
+    .more summary::-webkit-details-marker { display: none; }
+    .more[open] summary { color: var(--muted); }
+    .mini-button.taxi { border-color: #fde68a; color: #92400e; background: #fffbeb; }
+
+    .hop { position: relative; margin: -2px 0 9px 40px; padding-left: 10px; }
+    .hop summary { display: flex; align-items: center; gap: 7px; padding: 7px 10px; border-radius: 11px; background: rgba(255,255,255,.65); border: 1px dashed #cbd5e1; color: #475569; font-size: 12px; cursor: pointer; list-style: none; }
+    .hop summary::-webkit-details-marker { display: none; }
+    .hop-time { flex: 0 0 auto; color: #64748b; font-weight: 900; font-size: 11px; font-variant-numeric: tabular-nums; }
+    .hop-title { flex: 1; min-width: 0; font-weight: 800; color: #334155; }
+    .hop-arrow { color: #94a3b8; font-size: 11px; transition: transform .2s; }
+    .hop[open] .hop-arrow { transform: rotate(180deg); }
+    .hop-body { margin: 6px 0 2px; padding: 10px 12px; border-radius: 11px; background: white; border: 1px solid var(--line); color: #475569; font-size: 12px; line-height: 1.6; white-space: pre-line; }
+    .hop .badge { flex: 0 0 auto; }
+
+    .event.now .event-card, .hop.now summary { outline: 3px solid #facc15; outline-offset: 2px; }
+    .now-pill { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 999px; background: #facc15; color: #422006; font-size: 10px; font-weight: 900; vertical-align: 2px; }
+    .event.past .event-card, .hop.past summary { opacity: .55; }
+
+    .modal-img { display: none; width: 100%; max-height: 52vh; object-fit: cover; }
+    .modal-img.show { display: block; }
+
+    .taxi-screen { position: fixed; inset: 0; z-index: 120; display: none; flex-direction: column; justify-content: center; gap: 18px; padding: 28px 22px; background: #fffbeb; color: #111827; text-align: center; }
+    .taxi-screen.open { display: flex; }
+    .taxi-screen .ask { font-size: 22px; font-weight: 800; color: #92400e; }
+    .taxi-screen .name { font-size: clamp(30px, 9vw, 46px); font-weight: 900; line-height: 1.25; word-break: keep-all; overflow-wrap: anywhere; }
+    .taxi-screen .addr { font-size: clamp(20px, 6vw, 28px); font-weight: 700; line-height: 1.4; }
+    .taxi-screen .pax { font-size: 20px; font-weight: 800; color: #1d4ed8; }
+    .taxi-screen .ko { font-size: 13px; color: #64748b; }
+    .taxi-screen button { align-self: center; border: 0; border-radius: 999px; padding: 12px 26px; background: #111827; color: white; font-weight: 900; cursor: pointer; }
+
+    .credit-list { margin: 6px 0 0; padding-left: 18px; }
+    .credit-list li { font-size: 11px; }
+    .credit-list a { color: #1d4ed8; }
+
     @media print {
       body { background: white; }
       .app { width: 100%; box-shadow: none; padding-bottom: 0; }
@@ -345,6 +404,8 @@
       #schedule-panel { break-before: auto; }
       .day-content { display: block !important; break-after: page; }
       .event-card, .info-card, .check-group { break-inside: avoid; }
+      .thumb, .event-actions, .hop-arrow, .now-pill, .dday { display: none !important; }
+      .event.past .event-card, .hop.past summary { opacity: 1; }
     }
   </style>
 </head>
@@ -354,6 +415,7 @@
       <div class="eyebrow">FUKUOKA · 4 NIGHTS 5 DAYS</div>
       <h1>부산에서 후쿠오카로,<br>유찬이와 함께하는 겨울여행</h1>
       <p class="subtitle">2026.12.30 수 — 2027.01.03 일 · 크로스라이프 하카타 텐진</p>
+      <span class="dday" id="dday" hidden></span>
       <div class="flight-strip" aria-label="가는 편 항공 정보">
         <div class="airport"><strong>PUS</strong><span>14:00 · 김해공항</span></div>
         <div class="plane">✈</div>
@@ -472,6 +534,19 @@
           <p><span class="label">주후쿠오카 대한민국 총영사관</span> +81-92-771-0461</p>
           <p><span class="label">아기</span> 체온계·해열제·상비약은 기내 가방에 보관하고 여행자보험 연락처를 오프라인 저장하세요.</p>
         </article>
+        <article class="info-card">
+          <h3>🧭 일정 화면 보는 법</h3>
+          <p><span class="badge reserve">예약 필요</span> <span class="badge check">영업 확인</span> <span class="badge option">선택</span> <span class="badge confirmed">확정</span> <span class="badge critical">놓치면 안 됨</span></p>
+          <p><span class="label">이동</span> 점선 줄은 이동 구간입니다. 눌러서 상세 안내·지도·「기사님께 보여주기」를 엽니다.</p>
+          <p><span class="label">여행 중</span> 여행 날짜에 열면 그날·지금 시간의 일정으로 자동 이동하고 노란 테두리로 표시합니다.</p>
+          <p><span class="label">사진</span> 명소는 위키미디어 공용의 자유 이용 사진, 식당·카페는 음식 아이콘입니다. 실제 음식 사진은 식당 SNS 탭에서 확인하세요.</p>
+        </article>
+
+        <article class="info-card">
+          <h3>📷 사진 출처</h3>
+          <p>아래 사진은 위키미디어 공용(Wikimedia Commons)의 자유 라이선스 사진입니다.</p>
+          <ul class="credit-list" id="photo-credits"></ul>
+        </article>
       </div>
       <button class="print-button" type="button" onclick="window.print()">🖨️ 전체 일정 인쇄 / PDF 저장</button>
       <p class="smallprint">공유 대화 내용을 기준으로 구성했습니다. 항공편 도착·귀국 시각, 유후인노모리 좌석, 연말연시 영업시간은 예약표와 공식 사이트에서 출발 전에 최종 확인하세요.</p>
@@ -556,8 +631,18 @@
   <div class="modal-backdrop" id="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal">
       <div class="modal-head"><h3 id="modal-title"></h3><button class="close" id="modal-close" aria-label="닫기">✕</button></div>
+      <img class="modal-img" id="modal-img" alt="">
       <div class="modal-body" id="modal-body"></div>
     </div>
+  </div>
+
+  <div class="taxi-screen" id="taxi-screen" role="dialog" aria-modal="true" aria-label="택시 기사님께 보여주기">
+    <div class="ask">ここまでお願いします。</div>
+    <div class="name" id="taxi-name"></div>
+    <div class="addr" id="taxi-addr"></div>
+    <div class="pax">大人4名・乳児1名です。</div>
+    <div class="ko" id="taxi-ko"></div>
+    <button type="button" id="taxi-close">닫기</button>
   </div>
 
   <script>
@@ -573,6 +658,110 @@
       view: { icon: '🌇', color: '#dc2626' },
       rest: { icon: '♨️', color: '#0284c7' }
     };
+
+    // 명소 사진: 위키미디어 공용 자유 라이선스 (출처는 여행정보 탭에 표시)
+    const photos = {
+      gimhae: {"name": "김해공항", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Gimhae_International_Airport.jpg/250px-Gimhae_International_Airport.jpg", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Gimhae_International_Airport.jpg/960px-Gimhae_International_Airport.jpg", "page": "https://commons.wikimedia.org/wiki/File:Gimhae_International_Airport.jpg", "artist": "螺钉", "license": "CC BY-SA 3.0"},
+      fukair: {"name": "후쿠오카공항 국제선 터미널", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Fukuoka_Airport_International_Terminal_20140421.jpg/250px-Fukuoka_Airport_International_Terminal_20140421.jpg", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Fukuoka_Airport_International_Terminal_20140421.jpg/960px-Fukuoka_Airport_International_Terminal_20140421.jpg", "page": "https://commons.wikimedia.org/wiki/File:Fukuoka_Airport_International_Terminal_20140421.jpg", "artist": "そらみみ", "license": "CC BY-SA 3.0"},
+      nakasu: {"name": "나카스 강변", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Nakasu_Yatai_Stalls_%2819979437930%29.jpg/250px-Nakasu_Yatai_Stalls_%2819979437930%29.jpg", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Nakasu_Yatai_Stalls_%2819979437930%29.jpg/960px-Nakasu_Yatai_Stalls_%2819979437930%29.jpg", "page": "https://commons.wikimedia.org/wiki/File:Nakasu_Yatai_Stalls_(19979437930).jpg", "artist": "Yoshikazu TAKADA from Tokyo, Japan", "license": "CC BY 2.0"},
+      canal: {"name": "캐널시티 하카타", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Canal_City_Hakata_2011.jpg/250px-Canal_City_Hakata_2011.jpg", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Canal_City_Hakata_2011.jpg/960px-Canal_City_Hakata_2011.jpg", "page": "https://commons.wikimedia.org/wiki/File:Canal_City_Hakata_2011.jpg", "artist": "ぱちょぴ（pacyopi）", "license": "CC BY-SA 3.0"},
+      sumiyoshi: {"name": "스미요시 신사", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Sumiyoshi-jinja_the_haiden_Sumiyoshi_3-ch%C5%8Dme_Hakata-ku_Fukuoka_20241010_160131.jpg/250px-Sumiyoshi-jinja_the_haiden_Sumiyoshi_3-ch%C5%8Dme_Hakata-ku_Fukuoka_20241010_160131.jpg", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Sumiyoshi-jinja_the_haiden_Sumiyoshi_3-ch%C5%8Dme_Hakata-ku_Fukuoka_20241010_160131.jpg/960px-Sumiyoshi-jinja_the_haiden_Sumiyoshi_3-ch%C5%8Dme_Hakata-ku_Fukuoka_20241010_160131.jpg", "page": "https://commons.wikimedia.org/wiki/File:Sumiyoshi-jinja_the_haiden_Sumiyoshi_3-ch%C5%8Dme_Hakata-ku_Fukuoka_20241010_160131.jpg", "artist": "Hirho", "license": "CC BY-SA 4.0"},
+      ohori: {"name": "오호리공원", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/%C5%8Chori-ike_and_Ukimi-d%C5%8D_%C5%8Chori-k%C5%8Den_Ch%C5%AB%C5%8D-ku_Fukuoka_City_20221017.jpg/250px-%C5%8Chori-ike_and_Ukimi-d%C5%8D_%C5%8Chori-k%C5%8Den_Ch%C5%AB%C5%8D-ku_Fukuoka_City_20221017.jpg", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/%C5%8Chori-ike_and_Ukimi-d%C5%8D_%C5%8Chori-k%C5%8Den_Ch%C5%AB%C5%8D-ku_Fukuoka_City_20221017.jpg/960px-%C5%8Chori-ike_and_Ukimi-d%C5%8D_%C5%8Chori-k%C5%8Den_Ch%C5%AB%C5%8D-ku_Fukuoka_City_20221017.jpg", "page": "https://commons.wikimedia.org/wiki/File:%C5%8Chori-ike_and_Ukimi-d%C5%8D_%C5%8Chori-k%C5%8Den_Ch%C5%AB%C5%8D-ku_Fukuoka_City_20221017.jpg", "artist": "Hirho", "license": "CC BY-SA 4.0"},
+      kego: {"name": "케고신사", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Torii_of_Kego_Shrine.JPG/250px-Torii_of_Kego_Shrine.JPG", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Torii_of_Kego_Shrine.JPG/960px-Torii_of_Kego_Shrine.JPG", "page": "https://commons.wikimedia.org/wiki/File:Torii_of_Kego_Shrine.JPG", "artist": "そらみみ (Soramimi)", "license": "CC BY-SA 4.0"},
+      tenjin: {"name": "텐진 거리", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Tenjin_Nishi-dori_Street_20150604.JPG/250px-Tenjin_Nishi-dori_Street_20150604.JPG", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Tenjin_Nishi-dori_Street_20150604.JPG/960px-Tenjin_Nishi-dori_Street_20150604.JPG", "page": "https://commons.wikimedia.org/wiki/File:Tenjin_Nishi-dori_Street_20150604.JPG", "artist": "そらみみ (Soramimi)", "license": "CC BY-SA 4.0"},
+      hakata: {"name": "하카타역", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Hakata_Station_20180306.jpg/250px-Hakata_Station_20180306.jpg", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Hakata_Station_20180306.jpg/960px-Hakata_Station_20180306.jpg", "page": "https://commons.wikimedia.org/wiki/File:Hakata_Station_20180306.jpg", "artist": "そらみみ", "license": "CC BY-SA 4.0"},
+      yufuinnomori: {"name": "유후인노모리 열차", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/JRK_Yufuin-no-Mori_Kiha71_Kiha72.jpg/250px-JRK_Yufuin-no-Mori_Kiha71_Kiha72.jpg", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/JRK_Yufuin-no-Mori_Kiha71_Kiha72.jpg/960px-JRK_Yufuin-no-Mori_Kiha71_Kiha72.jpg", "page": "https://commons.wikimedia.org/wiki/File:JRK_Yufuin-no-Mori_Kiha71_Kiha72.jpg", "artist": "MaedaAkihiko", "license": "CC0"},
+      yufuinst: {"name": "유후인역", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Yufuin_Station_3.JPG/250px-Yufuin_Station_3.JPG", "large": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Yufuin_Station_3.JPG", "page": "https://commons.wikimedia.org/wiki/File:Yufuin_Station_3.JPG", "artist": "MK Products at Japanese Wikipedia", "license": "CC BY-SA 3.0"},
+      yunotsubo: {"name": "유노츠보 거리", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Mount_Yufudake_from_Yunotsubo_Street.JPG/250px-Mount_Yufudake_from_Yunotsubo_Street.JPG", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Mount_Yufudake_from_Yunotsubo_Street.JPG/960px-Mount_Yufudake_from_Yunotsubo_Street.JPG", "page": "https://commons.wikimedia.org/wiki/File:Mount_Yufudake_from_Yunotsubo_Street.JPG", "artist": "そらみみ", "license": "CC BY-SA 4.0"},
+      floral: {"name": "유후인 플로랄빌리지", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Yufuin_Floral_Village.jpg/250px-Yufuin_Floral_Village.jpg", "large": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Yufuin_Floral_Village.jpg", "page": "https://commons.wikimedia.org/wiki/File:Yufuin_Floral_Village.jpg", "artist": "Bpcon98", "license": "CC0"},
+      kinrin: {"name": "긴린코 호수", "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Lake_Kinrin_with_Morning_fog.jpg/250px-Lake_Kinrin_with_Morning_fog.jpg", "large": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Lake_Kinrin_with_Morning_fog.jpg/960px-Lake_Kinrin_with_Morning_fog.jpg", "page": "https://commons.wikimedia.org/wiki/File:Lake_Kinrin_with_Morning_fog.jpg", "artist": "Tzu-hsun, Hsu", "license": "CC BY-SA 4.0"}
+    };
+
+    // 택시 기사님께 보여줄 일본어 목적지
+    const places = {
+      hotel: { ja: 'クロスライフ博多天神', addr: '', ko: '크로스라이프 하카타 텐진 (호텔)' },
+      fukair: { ja: '福岡空港 国際線ターミナル', addr: '', ko: '후쿠오카공항 국제선 터미널' },
+      painstock: { ja: 'パンストック 天神店', addr: '福岡市中央区西中洲6-17', ko: '빵스톡 텐진점' },
+      uoden: { ja: '博多シーフード うお田 西中洲店', addr: '福岡市中央区西中洲4-17', ko: '우오덴 서나카스점' },
+      sumiyoshi: { ja: '住吉神社', addr: '福岡市博多区住吉3-1-51', ko: '스미요시 신사' },
+      ohori: { ja: 'スターバックス 福岡大濠公園店', addr: '', ko: '오호리공원 스타벅스' },
+      solaria: { ja: 'ソラリアステージ（天神）', addr: '', ko: '텐진 솔라리아 스테이지 (효탄 회전초밥)' },
+      ikkei: { ja: '因幡町 一慶', addr: '福岡市中央区天神1-10-20 天神ビジネスセンター B2F', ko: '이나바쵸 잇케이' },
+      hakata: { ja: '博多駅（博多口）', addr: '', ko: '하카타역' },
+      yufuinst: { ja: '由布院駅', addr: '', ko: '유후인역' },
+      oishi: { ja: '牛もつ鍋 おおいし 住吉店', addr: '福岡市博多区住吉4-8-21', ko: '오오이시 스미요시점' },
+      lalaport: { ja: 'ららぽーと福岡', addr: '', ko: '라라포트 후쿠오카' },
+      sashisu: { ja: 'すし酒場 さしす 天神店', addr: '福岡市中央区今泉1-13-21', ko: '사시스 텐진점 (이마이즈미)' }
+    };
+
+    // 일정 카드 보강: 배지 · 사진/아이콘 · 놓치면 안 되는 시간 · 택시 목적지
+    // badge: reserve(예약 필요) check(영업 확인) option(선택) confirmed(확정)
+    const extras = {
+      '김해공항 국제선 도착': { card: true, photo: 'gimhae', critical: true },
+      '에어부산 BX0509 · 부산→후쿠오카': { badge: 'confirmed', critical: true },
+      '입국 수속 · 짐 찾기': {},
+      '공항 → 호텔 이동': { place: 'hotel' },
+      '체크인 · 짐 정리': { badge: 'confirmed' },
+      '호텔 → 빵스톡 텐진점': { place: 'painstock' },
+      '빵스톡 텐진점 · 영업 시 방문': { badge: 'check', icon: '🥐', place: 'painstock' },
+      '우오덴 저녁 · 1순위': { badge: 'reserve', icon: '🐟', place: 'uoden' },
+      'TOFFEE park': { badge: 'check', icon: '🍮' },
+      '나카스강 야경 산책': { photo: 'nakasu' },
+      '캐널시티 야간 분수쇼': { photo: 'canal', badge: 'check' },
+      '선택 · 스미게키조 무사시자 술 한잔': { badge: 'option', icon: '🍶' },
+      '호텔 → 스미요시 신사': { place: 'sumiyoshi' },
+      '스미요시 신사 오전 참배': { photo: 'sumiyoshi', place: 'sumiyoshi' },
+      '스미요시 신사 → 오호리공원': { place: 'ohori' },
+      '오호리공원 & 스타벅스': { photo: 'ohori' },
+      '오호리공원 → 텐진': { place: 'solaria' },
+      '텐진 점심 · 현장 선택': { badge: 'check', icon: '🍣', place: 'solaria' },
+      '케고신사': { photo: 'kego' },
+      '텐진 쇼핑 · 몽벨': { photo: 'tenjin', badge: 'check' },
+      '카페에서 짧게 휴식': { icon: '☕' },
+      '텐진 쇼핑 → 이나바쵸 잇케이': { place: 'ikkei' },
+      '이나바쵸 잇케이 · 이른 저녁': { badge: 'reserve', icon: '🍲', place: 'ikkei' },
+      '이나바쵸 잇케이 → 호텔 복귀': { place: 'hotel' },
+      '호텔 → 하카타역': { badge: 'reserve', critical: true, place: 'hakata' },
+      '유후인노모리 탑승 준비': { card: true, photo: 'hakata' },
+      '유후인노모리 1호 · 하카타→유후인': { card: true, photo: 'yufuinnomori', badge: 'reserve', critical: true },
+      '유후인역 · 화장실 점검': { photo: 'yufuinst' },
+      '유노츠보 거리': { photo: 'yunotsubo' },
+      '유후인 점심 · 요모야마 후보': { badge: 'check', icon: '🍢' },
+      '플로랄빌리지': { photo: 'floral' },
+      '긴린코 호수': { photo: 'kinrin', critical: true },
+      '긴린코 → 유후인역': { critical: true, place: 'yufuinst' },
+      '유후인역 · 귀환 준비': {},
+      '유후인노모리 4호 · 유후인→하카타': { card: true, photo: 'yufuinnomori', badge: 'reserve', critical: true },
+      '하카타역 → 오오이시 스미요시점': { place: 'oishi' },
+      '오오이시 스미요시점 · 저녁 후보': { badge: 'reserve', icon: '🍲', place: 'oishi' },
+      '오오이시 → 호텔 복귀': { place: 'hotel' },
+      '호텔 → 라라포트': { place: 'lalaport' },
+      "라라포트 · 아카짱혼포 → MARKEY'S → BREEZE": { icon: '🧸' },
+      '라라포트 이른 점심': { icon: '🍱' },
+      '남은 쇼핑 마무리': { icon: '🛍️' },
+      '라라포트 2층 · 쿠라시키 커피점': { badge: 'check', icon: '☕' },
+      '실물대 건담 짧게 관람': { icon: '🤖' },
+      '라라포트 → 호텔': { place: 'hotel' },
+      '호텔 → 사시스 텐진점': { place: 'sashisu' },
+      '사시스 텐진점 대기': {},
+      '스시사카바 사시스 텐진점': { badge: 'check', icon: '🍣', place: 'sashisu' },
+      '체크아웃': { critical: true },
+      '호텔 → 후쿠오카공항 국제선': { badge: 'reserve', critical: true, place: 'fukair' },
+      '수하물 위탁 · 출국 수속': { card: true, photo: 'fukair', critical: true },
+      '에어부산 BX0506 · 후쿠오카→부산': { badge: 'confirmed', critical: true }
+    };
+
+    // 날짜별 핵심 3줄 (빨간 시간 = 놓치면 안 되는 시간)
+    const dayKeys = {
+      1: [['11:30', '김해공항 국제선 도착 · 14:00 BX0509 출발'], ['18:00', '우오덴 저녁 (예약)'], ['20:00', '캐널시티 분수쇼']],
+      2: [['09:40', '스미요시 신사 → 10:30 오호리공원'], ['12:30', '텐진 점심: 효탄 → 신신 → 돈테키'], ['17:10', '이나바쵸 잇케이 저녁 (예약)']],
+      3: [['08:05', '대형 택시 → 09:17 유후인노모리 1호'], ['14:45', '긴린코 출발 · 15:15까지 유후인역'], ['15:56', '4호 귀환 → 18:30 오오이시']],
+      4: [['10:30', '라라포트 도착 · 코인로커부터'], ['11:30', '혼잡 전 이른 점심'], ['17:10', '사시스 텐진점 대기 → 17:30 입장']],
+      5: [['08:40', '대형 택시로 공항 출발'], ['11:05', '에어부산 체크인 마감'], ['11:55', 'BX0506 출발 → 13:00 부산']]
+    };
+
+    const tripDates = { 1: '2026-12-30', 2: '2026-12-31', 3: '2027-01-01', 4: '2027-01-02', 5: '2027-01-03' };
+    const badgeText = { reserve: '예약 필요', check: '영업 확인', option: '선택', confirmed: '확정' };
 
     const legacyTokyoTripDays = [
       {
@@ -774,19 +963,84 @@
       return url ? `<a class="mini-link" href="${url}" target="_blank" rel="noopener">🗺️ 지도</a>` : '';
     }
 
-    function eventCard(event) {
-      const style = typeStyle[event.type] || typeStyle.sight;
-      const detailButton = event.detail ? `<button class="mini-button" type="button" data-title="${event.title.replaceAll('"','&quot;')}" data-detail="${encodeURIComponent(event.detail)}">💡 상세</button>` : '';
+    const esc = (s) => String(s).replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
+
+    function badgesHtml(x) {
+      const list = [];
+      if (x.critical) list.push('<span class="badge critical">놓치면 안 됨</span>');
+      if (x.badge) list.push(`<span class="badge ${x.badge}">${badgeText[x.badge]}</span>`);
+      return list.length ? `<div class="badges">${list.join('')}</div>` : '';
+    }
+
+    function actionsHtml(event, x) {
+      const detailButton = event.detail ? `<button class="mini-button" type="button" data-title="${esc(event.title)}" data-detail="${encodeURIComponent(event.detail)}">💡 상세</button>` : '';
+      const taxiButton = x.place ? `<button class="mini-button taxi" type="button" data-place="${x.place}">🚕 기사님께 보여주기</button>` : '';
+      const html = mapButton(event.map) + detailButton + taxiButton;
+      return html ? `<div class="event-actions">${html}</div>` : '';
+    }
+
+    function descHtml(desc) {
+      const lines = String(desc || '').split('\n');
+      const head = lines.slice(0, 2).join('\n');
+      const rest = lines.slice(2).join('\n');
+      return `<p class="event-desc">${head}</p>` + (rest ? `<details class="more"><summary>더보기 ▾</summary><p class="event-desc">${rest}</p></details>` : '');
+    }
+
+    function mediaHtml(event, x) {
+      if (x.photo && photos[x.photo]) {
+        const p = photos[x.photo];
+        return `<button class="thumb" type="button" data-photo="${x.photo}" aria-label="${esc(p.name)} 사진 크게 보기"><img src="${p.thumb}" alt="${esc(p.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></button>`;
+      }
+      if (x.icon) return `<div class="icon-tile" aria-hidden="true">${x.icon}</div>`;
+      return '';
+    }
+
+    function hopIcon(event) {
+      if (event.title.includes('유후인노모리')) return '🚆';
+      if (/택시/.test(event.desc)) return '🚕';
+      if (/도보/.test(event.desc)) return '🚶';
+      return '🚇';
+    }
+
+    function isHop(event, x) { return event.type === 'transit' && !x.card; }
+
+    function eventKey(dayNo, index) { return `d${dayNo}-${index}`; }
+
+    function hopRow(event, x, key) {
+      const badge = x.badge ? `<span class="badge ${x.badge}">${badgeText[x.badge]}</span>` : '';
       return `
-        <article class="event" style="--event-color:${style.color}">
+        <details class="hop ${x.critical ? 'critical' : ''}" data-key="${key}">
+          <summary><span class="hop-time">${event.time}</span><span class="hop-title">${hopIcon(event)} ${event.title}</span>${badge}<span class="hop-arrow">▾</span></summary>
+          <div class="hop-body">${event.desc}${actionsHtml(event, x)}</div>
+        </details>`;
+    }
+
+    function eventCard(event, key) {
+      const x = extras[event.title] || {};
+      if (isHop(event, x)) return hopRow(event, x, key);
+      const style = typeStyle[event.type] || typeStyle.sight;
+      return `
+        <article class="event ${x.critical ? 'critical' : ''}" data-key="${key}" style="--event-color:${style.color}">
           <div class="event-dot" aria-hidden="true">${style.icon}</div>
           <div class="event-card">
-            <div class="event-time">${event.time}</div>
-            <h3 class="event-title">${event.title}</h3>
-            <p class="event-desc">${event.desc}</p>
-            ${(event.map || event.detail) ? `<div class="event-actions">${mapButton(event.map)}${detailButton}</div>` : ''}
+            <div class="card-top">
+              <div class="card-main">
+                <div class="event-time">${event.time}</div>
+                <h3 class="event-title">${event.title}</h3>
+                ${badgesHtml(x)}
+              </div>
+              ${mediaHtml(event, x)}
+            </div>
+            ${descHtml(event.desc)}
+            ${actionsHtml(event, x)}
           </div>
         </article>`;
+    }
+
+    function dayKeyHtml(dayNo) {
+      const keys = dayKeys[dayNo];
+      if (!keys) return '';
+      return `<div class="day-key"><h4>📌 오늘의 핵심</h4><ol>${keys.map(([t, txt]) => `<li><b>${t}</b><span>${txt}</span></li>`).join('')}</ol></div>`;
     }
 
     function renderDayNav() {
@@ -803,8 +1057,9 @@
             <h2 class="date">${day.date}</h2>
             <p class="route">📍 ${day.route}</p>
           </div>
-          <p class="route-note">💡 ${day.note}</p>
-          <div class="timeline">${day.events.map(eventCard).join('')}</div>
+          ${dayKeyHtml(day.day)}
+          <p class="route-note small">💡 ${day.note}</p>
+          <div class="timeline">${day.events.map((ev, i) => eventCard(ev, eventKey(day.day, i))).join('')}</div>
         </div>`).join('');
     }
 
@@ -848,13 +1103,83 @@
 
     const modalBackdrop = document.getElementById('modal-backdrop');
     function closeModal() { modalBackdrop.classList.remove('open'); }
+    const modalImg = document.getElementById('modal-img');
+    function openModal(title, body, imgSrc) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-body').textContent = body;
+      if (imgSrc) { modalImg.src = imgSrc; modalImg.alt = title; modalImg.classList.add('show'); }
+      else { modalImg.removeAttribute('src'); modalImg.classList.remove('show'); }
+      modalBackdrop.classList.add('open');
+    }
     document.addEventListener('click', (event) => {
       const button = event.target.closest('[data-detail]');
-      if (!button) return;
-      document.getElementById('modal-title').textContent = button.dataset.title;
-      document.getElementById('modal-body').textContent = decodeURIComponent(button.dataset.detail);
-      modalBackdrop.classList.add('open');
+      if (button) { openModal(button.dataset.title, decodeURIComponent(button.dataset.detail)); return; }
+      const thumb = event.target.closest('[data-photo]');
+      if (thumb) {
+        const p = photos[thumb.dataset.photo];
+        openModal(p.name, `사진: ${p.artist} · ${p.license}\n위키미디어 공용`, p.large);
+        return;
+      }
+      const taxi = event.target.closest('[data-place]');
+      if (taxi) openTaxi(taxi.dataset.place);
     });
+
+    const taxiScreen = document.getElementById('taxi-screen');
+    function openTaxi(key) {
+      const p = places[key];
+      if (!p) return;
+      document.getElementById('taxi-name').textContent = p.ja;
+      document.getElementById('taxi-addr').textContent = p.addr;
+      document.getElementById('taxi-ko').textContent = p.ko;
+      taxiScreen.classList.add('open');
+    }
+    function closeTaxi() { taxiScreen.classList.remove('open'); }
+    document.getElementById('taxi-close').addEventListener('click', closeTaxi);
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeTaxi(); });
+
+    // 사진 출처 목록
+    document.getElementById('photo-credits').innerHTML = Object.values(photos).map(p =>
+      `<li>${p.name} — <a href="${p.page}" target="_blank" rel="noopener">${esc(p.artist)}</a>, ${p.license}</li>`).join('');
+
+    // 인쇄할 때는 접힌 내용 모두 펼치기
+    window.addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => { d.dataset.wasOpen = d.open ? '1' : ''; d.open = true; }));
+    window.addEventListener('afterprint', () => document.querySelectorAll('details').forEach(d => { d.open = d.dataset.wasOpen === '1'; }));
+
+    // 여행 중 '지금' 표시 · 출발 전 D-day (일본 시간 기준, 테스트: ?now=2027-01-01T14:50)
+    function tokyoNow() {
+      const forced = new URLSearchParams(location.search).get('now');
+      if (forced && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(forced)) return { date: forced.slice(0, 10), minutes: Number(forced.slice(11, 13)) * 60 + Number(forced.slice(14, 16)) };
+      const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date()).map(p => [p.type, p.value]));
+      return { date: `${parts.year}-${parts.month}-${parts.day}`, minutes: Number(parts.hour) * 60 + Number(parts.minute) };
+    }
+    function startMinutes(time) { const m = String(time).match(/(\d{1,2}):(\d{2})/); return m ? Number(m[1]) * 60 + Number(m[2]) : null; }
+
+    function applyNow() {
+      const now = tokyoNow();
+      const ddayEl = document.getElementById('dday');
+      const daysLeft = Math.round((Date.parse(tripDates[1]) - Date.parse(now.date)) / 86400000);
+      if (daysLeft > 0) { ddayEl.textContent = `✈️ 출발까지 D-${daysLeft}`; ddayEl.hidden = false; }
+      const dayNo = Number(Object.keys(tripDates).find(k => tripDates[k] === now.date));
+      if (!dayNo) return;
+      ddayEl.textContent = `🧳 여행 ${dayNo}일차`; ddayEl.hidden = false;
+      selectedDay = dayNo;
+      renderDayNav();
+      document.querySelectorAll('[data-day-content]').forEach(el => { el.style.display = Number(el.dataset.dayContent) === dayNo ? 'block' : 'none'; });
+      const events = tripDays.find(d => d.day === dayNo).events;
+      let current = -1;
+      events.forEach((ev, i) => { const s = startMinutes(ev.time); if (s !== null && s <= now.minutes) current = i; });
+      events.forEach((ev, i) => {
+        const el = document.querySelector(`[data-key="${eventKey(dayNo, i)}"]`);
+        if (!el) return;
+        if (i < current) el.classList.add('past');
+        if (i === current) {
+          el.classList.add('now');
+          const target = el.querySelector('.event-time, .hop-time');
+          if (target) target.insertAdjacentHTML('beforeend', '<span class="now-pill">지금</span>');
+          setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300);
+        }
+      });
+    }
     document.getElementById('modal-close').addEventListener('click', closeModal);
     modalBackdrop.addEventListener('click', (event) => { if (event.target === modalBackdrop) closeModal(); });
     document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeModal(); });
@@ -894,6 +1219,7 @@
     renderDayNav();
     renderSchedule();
     renderChecklist();
+    applyNow();
   </script>
 </body>
 </html>
