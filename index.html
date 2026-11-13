@@ -379,7 +379,7 @@
     .now-pill { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 999px; background: #facc15; color: #422006; font-size: 10px; font-weight: 900; vertical-align: 2px; }
     .event.past .event-card, .hop.past summary { opacity: .55; }
 
-    .modal-img { display: none; width: 100%; max-height: 52vh; object-fit: cover; }
+    .modal-img { display: none; width: 100%; max-height: 62vh; object-fit: contain; background: #0f172a; }
     .modal-img.show { display: block; }
 
     .taxi-screen { position: fixed; inset: 0; z-index: 120; display: none; flex-direction: column; justify-content: center; gap: 18px; padding: 28px 22px; background: #fffbeb; color: #111827; text-align: center; }
@@ -400,6 +400,9 @@
     .modal-embed.show { display: block; }
     .modal-embed iframe { display: block; width: 100%; height: min(560px, 62vh); border: 0; border-radius: 12px; background: #f8fafc; }
     .modal-embed iframe.sv { height: min(420px, 55vh); }
+    .thumb.ig-thumb { position: relative; overflow: visible; }
+    .thumb.ig-thumb img { border-radius: 12px; }
+    .modal-ig-link { display: block; width: 100%; padding: 10px; font-size: 14px; }
     .icon-tile.sv { position: relative; border: 0; padding: 0; cursor: pointer; }
     .icon-tile.sv::after { content: "🏢"; position: absolute; right: -4px; bottom: -4px; width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; background: #2563eb; font-size: 11px; box-shadow: 0 0 0 2px white; }
     .go-msg { margin: 8px 0; padding: 10px 12px; border-radius: 12px; background: #f1f5f9; }
@@ -577,12 +580,6 @@
           <p><span class="label">여행 중</span> 여행 날짜에 열면 그날·지금 시간의 일정으로 자동 이동하고 노란 테두리로 표시합니다.</p>
           <p><span class="label">사진</span> 명소는 위키미디어 공용의 자유 이용 사진, 식당·카페는 음식 아이콘입니다. 실제 음식 사진은 식당 SNS 탭에서 확인하세요.</p>
         </article>
-
-        <article class="info-card">
-          <h3>📷 사진 출처</h3>
-          <p>아래 사진은 위키미디어 공용(Wikimedia Commons)과 Flickr의 자유 라이선스(CC) 사진입니다.</p>
-          <ul class="credit-list" id="photo-credits"></ul>
-        </article>
       </div>
       <button class="print-button" type="button" onclick="window.print()">🖨️ 전체 일정 인쇄 / PDF 저장</button>
       <p class="smallprint">공유 대화 내용을 기준으로 구성했습니다. 항공편 도착·귀국 시각, 유후인노모리 좌석, 연말연시 영업시간은 예약표와 공식 사이트에서 출발 전에 최종 확인하세요.</p>
@@ -716,7 +713,17 @@
       lalaport: {"name": "라라포트 후쿠오카 · 건물과 실물대 건담", "thumb": "https://live.staticflickr.com/65535/54402337684_8db435581e_n.jpg", "large": "https://live.staticflickr.com/65535/54402337684_8db435581e_b.jpg", "page": "https://www.flickr.com/photos/60198488@N06/54402337684", "artist": "kxz Chen", "license": "CC BY-SA 2.0", "source": "Flickr"},
       gundam: {"name": "라라포트 후쿠오카 실물대 νガンダム", "thumb": "https://live.staticflickr.com/65535/54401281372_3e6b154dc9_n.jpg", "large": "https://live.staticflickr.com/65535/54401281372_3e6b154dc9_b.jpg", "page": "https://www.flickr.com/photos/60198488@N06/54401281372", "artist": "kxz Chen", "license": "CC BY-SA 2.0", "source": "Flickr"},
       asianart: {"name": "후쿠오카 아시아 미술관 입구 (하카타 리버레인)", "thumb": "images/asian-art-museum-thumb.jpg", "large": "images/asian-art-museum.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
-      donki: {"name": "돈키호테 텐진본점 건물 외관", "thumb": "images/donki-tenjin-thumb.jpg", "large": "images/donki-tenjin.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"}
+      donki: {"name": "돈키호테 텐진본점 건물 외관", "thumb": "images/donki-tenjin-thumb.jpg", "large": "images/donki-tenjin.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
+      painstock: {"name": "빵스톡 텐진점 입구", "thumb": "images/painstock-tenjin-thumb.jpg", "large": "images/painstock-tenjin.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
+      musasiza: {"name": "스미게키조 무사시자 화로구이", "thumb": "images/musasiza-thumb.jpg", "large": "images/musasiza.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
+      toffee: {"name": "TOFFEE park 커피", "thumb": "images/toffee-thumb.jpg", "large": "images/toffee.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
+      mentaiju: {"name": "원조 하카타 멘타이쥬", "thumb": "images/mentaiju-thumb.jpg", "large": "images/mentaiju.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
+      hyoutan: {"name": "효탄 노 카이텐 스시 초밥", "thumb": "images/hyoutan-thumb.jpg", "large": "images/hyoutan.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
+      ikkei: {"name": "이나바쵸 잇케이 정식", "thumb": "images/ikkei-thumb.jpg", "large": "images/ikkei.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
+      oishi: {"name": "오오이시 스미요시점 모츠나베", "thumb": "images/oishi-thumb.jpg", "large": "images/oishi.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
+      anpanman: {"name": "후쿠오카 호빵맨 어린이 박물관 캐릭터", "thumb": "images/anpanman-thumb.jpg", "large": "images/anpanman.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
+      kurashiki: {"name": "쿠라시키 커피점 라라포트 후쿠오카점", "thumb": "images/kurashiki-thumb.jpg", "large": "images/kurashiki.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
+      sashisu: {"name": "스시사카바 사시스 텐진점 초밥", "thumb": "images/sashisu-thumb.jpg", "large": "images/sashisu.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"}
     };
 
     // 택시 기사님께 보여줄 일본어 목적지
@@ -749,23 +756,23 @@
       '공항 → 호텔 이동': { place: 'hotel' },
       '체크인 · 짐 정리': { badge: 'confirmed' },
       '호텔 → 빵스톡 텐진점': { place: 'painstock' },
-      '빵스톡 텐진점 · 영업 시 방문': { badge: 'check', icon: '🥐', place: 'painstock', ig: 'painstock' },
-      '원조 하카타 멘타이쥬 저녁 · 1순위': { badge: 'reserve', icon: '🍚', place: 'mentaiju', ig: 'mentaiju' },
-      'TOFFEE park': { badge: 'check', icon: '🍮', ig: 'toffee' },
+      '빵스톡 텐진점 · 영업 시 방문': { badge: 'check', icon: '🥐', place: 'painstock', ig: 'painstock', igThumb: 'painstock' },
+      '원조 하카타 멘타이쥬 저녁 · 1순위': { badge: 'reserve', icon: '🍚', place: 'mentaiju', ig: 'mentaiju', igThumb: 'mentaiju' },
+      'TOFFEE park': { badge: 'check', icon: '🍮', ig: 'toffee', igThumb: 'toffee' },
       '나카스강 야경 산책': { photo: 'nakasu' },
       '캐널시티 야간 분수쇼': { photo: 'canal', badge: 'check' },
-      '선택 · 스미게키조 무사시자 술 한잔': { badge: 'option', icon: '🍶', ig: 'musasiza' },
+      '선택 · 스미게키조 무사시자 술 한잔': { badge: 'option', icon: '🍶', ig: 'musasiza', igThumb: 'musasiza' },
       '호텔 → 스미요시 신사': { place: 'sumiyoshi' },
       '스미요시 신사 오전 참배': { photo: 'sumiyoshi', place: 'sumiyoshi' },
       '스미요시 신사 → 오호리공원': { place: 'ohori' },
       '오호리공원 & 스타벅스': { photo: 'ohori' },
       '오호리공원 → 텐진': { place: 'solaria' },
-      '텐진 점심 · 현장 선택': { badge: 'check', icon: '🍣', place: 'solaria', ig: 'hyoutan' },
+      '텐진 점심 · 현장 선택': { badge: 'check', icon: '🍣', place: 'solaria', ig: 'hyoutan', igThumb: 'hyoutan' },
       '케고신사': { photo: 'kego' },
       '텐진 쇼핑 · 몽벨': { photo: 'tenjin', badge: 'check' },
       '카페에서 짧게 휴식': { icon: '☕' },
       '텐진 쇼핑 → 이나바쵸 잇케이': { place: 'ikkei' },
-      '이나바쵸 잇케이 · 이른 저녁': { badge: 'reserve', icon: '🍲', place: 'ikkei', ig: 'ikkei' },
+      '이나바쵸 잇케이 · 이른 저녁': { badge: 'reserve', icon: '🍲', place: 'ikkei', ig: 'ikkei', igThumb: 'ikkei' },
       '이나바쵸 잇케이 → 호텔 복귀': { place: 'hotel' },
       '호텔 → 하카타역': { badge: 'reserve', critical: true, place: 'hakata' },
       '유후인노모리 탑승 준비': { card: true, photo: 'hakata' },
@@ -779,17 +786,17 @@
       '유후인역 · 귀환 준비': {},
       '유후인노모리 4호 · 유후인→하카타': { card: true, photo: 'yufuinnomori', badge: 'reserve', critical: true },
       '하카타역 → 오오이시 스미요시점': { place: 'oishi' },
-      '오오이시 스미요시점 · 저녁 후보': { badge: 'reserve', icon: '🍲', place: 'oishi', ig: 'oishi' },
+      '오오이시 스미요시점 · 저녁 후보': { badge: 'reserve', icon: '🍲', place: 'oishi', ig: 'oishi', igThumb: 'oishi' },
       '오오이시 → 호텔 복귀': { place: 'hotel' },
       '호텔 → 라라포트': { place: 'lalaport' },
       "라라포트 · 아카짱혼포 → MARKEY'S → BREEZE": { photo: 'lalaport' },
       '라라포트 점심': { icon: '🍱' },
       '호텔 → 하카타 리버레인': { place: 'riverain' },
-      '후쿠오카 호빵맨 어린이 박물관': { badge: 'check', icon: '🍞', place: 'riverain', ig: 'anpanman' },
+      '후쿠오카 호빵맨 어린이 박물관': { badge: 'check', icon: '🍞', place: 'riverain', ig: 'anpanman', igThumb: 'anpanman' },
       '후쿠오카 아시아 미술관': { badge: 'check', icon: '🖼️', photo: 'asianart' },
       '하카타 리버레인 → 라라포트': { place: 'lalaport' },
       '호텔에서 짧게 정비': {},
-      '라라포트 2층 · 쿠라시키 커피점': { badge: 'check', icon: '☕', ig: 'kurashiki' },
+      '라라포트 2층 · 쿠라시키 커피점': { badge: 'check', icon: '☕', ig: 'kurashiki', igThumb: 'kurashiki' },
       '실물대 건담 짧게 관람': { photo: 'gundam' },
       '라라포트 → 호텔': { place: 'hotel' },
       '호텔 → 사시스 텐진점': { place: 'sashisu' },
@@ -797,7 +804,7 @@
       '사시스 → 돈키호테 텐진본점': { place: 'donki' },
       '돈키호테 텐진본점 · 마지막 쇼핑': { icon: '🛒', place: 'donki', photo: 'donki' },
       '돈키호테 → 호텔 복귀 · 짐 정리': { place: 'hotel' },
-      '스시사카바 사시스 텐진점': { badge: 'check', icon: '🍣', place: 'sashisu', ig: 'sashisu' },
+      '스시사카바 사시스 텐진점': { badge: 'check', icon: '🍣', place: 'sashisu', ig: 'sashisu', igThumb: 'sashisu' },
       '체크아웃': { critical: true },
       '호텔 → 후쿠오카공항 국제선': { badge: 'reserve', critical: true, place: 'fukair' },
       '수하물 위탁 · 출국 수속': { card: true, photo: 'fukair', critical: true },
@@ -815,7 +822,7 @@
 
     // 식당 인스타그램 공식 퍼가기(임베드): 사진은 인스타그램에서 직접 표시됩니다
     const igPosts = {
-      painstock: { handle: 'pain_stock_tenjin', code: 'DflAcvpBc7S', name: '빵스톡 텐진점' },
+      painstock: { handle: 'pain_stock_tenjin', code: 'DMZqt0EzAhM', name: '빵스톡 텐진점', note: '빵스톡 텐진점 공식 고정 게시물입니다. 빵 사진과 함께 방문·빵 예약 안내가 있어요(일반 게시물은 자주 지워져서 고정 게시물로 연결).' },
       mentaiju: { handle: 'ganso_hakata_mentaiju', code: 'DfYgHRej8pt', name: '원조 하카타 멘타이쥬' },
       toffee: { handle: 'toffeepark_fukuoka', code: 'DfB8KVEJ4ot', name: 'TOFFEE park' },
       musasiza: { handle: 'musasiza', code: 'DbPzd-LhfW8', name: '스미게키조 무사시자' },
@@ -1073,6 +1080,10 @@
         const p = photos[x.photo];
         return `<button class="thumb" type="button" data-photo="${x.photo}" aria-label="${esc(p.name)} 사진 크게 보기"><img src="${p.thumb}" alt="${esc(p.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></button>`;
       }
+      if (x.igThumb && photos[x.igThumb] && x.ig && igPosts[x.ig]) {
+        const p = photos[x.igThumb];
+        return `<button class="thumb ig-thumb" type="button" data-photo="${x.igThumb}" data-igkey="${x.ig}" aria-label="${esc(p.name)} 사진 크게 보기"><img src="${p.thumb}" alt="${esc(p.name)}" loading="lazy" decoding="async"></button>`;
+      }
       if (x.icon && x.sv && streetViews[x.sv]) return `<button class="icon-tile sv" type="button" data-sv="${x.sv}" aria-label="${esc(streetViews[x.sv].name)} 보기">${x.icon}</button>`;
       if (x.icon && x.ig && igPosts[x.ig]) return `<button class="icon-tile ig" type="button" data-ig="${x.ig}" aria-label="${esc(igPosts[x.ig].name)} 인스타 사진 보기">${x.icon}</button>`;
       if (x.icon) return `<div class="icon-tile" aria-hidden="true">${x.icon}</div>`;
@@ -1236,6 +1247,11 @@
       if (thumb) {
         const p = photos[thumb.dataset.photo];
         openModal(p.name, `사진: ${p.artist} · ${p.license}\n${p.source || '위키미디어 공용'}`, p.large);
+        const igk = thumb.dataset.igkey;
+        if (igk && igPosts[igk]) {
+          modalEmbed.innerHTML = `<button class="mini-button ig-btn modal-ig-link" type="button" data-ig="${igk}">📷 인스타 게시물 보기 (@${igPosts[igk].handle})</button>`;
+          modalEmbed.classList.add('show');
+        }
         return;
       }
       const taxi = event.target.closest('[data-place]');
@@ -1268,9 +1284,6 @@
       wrap.appendChild(link);
     });
 
-    // 사진 출처 목록
-    document.getElementById('photo-credits').innerHTML = Object.values(photos).map(p =>
-      `<li>${p.name} — ${p.page ? `<a href="${p.page}" target="_blank" rel="noopener">${esc(p.artist)}</a>` : esc(p.artist)}, ${p.license}</li>`).join('');
 
     // 인쇄할 때는 접힌 내용 모두 펼치기
     window.addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => { d.dataset.wasOpen = d.open ? '1' : ''; d.open = true; }));
