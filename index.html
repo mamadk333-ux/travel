@@ -402,6 +402,9 @@
     .modal-embed iframe.sv { height: min(420px, 55vh); }
     .icon-tile.sv { position: relative; border: 0; padding: 0; cursor: pointer; }
     .icon-tile.sv::after { content: "🏢"; position: absolute; right: -4px; bottom: -4px; width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; background: #2563eb; font-size: 11px; box-shadow: 0 0 0 2px white; }
+    .go-msg { margin: 8px 0; padding: 10px 12px; border-radius: 12px; background: #f1f5f9; }
+    .go-msg small { display: block; color: #64748b; font-weight: 800; }
+    .go-msg-text { margin: 4px 0 8px; font-size: 15px; line-height: 1.6; color: #0f172a; user-select: all; }
     .modal-embed .ig-open { display: block; margin-top: 8px; text-align: center; color: #be185d; font-size: 12px; font-weight: 900; text-decoration: none; }
     .credit-list { margin: 6px 0 0; padding-left: 18px; }
     .credit-list li { font-size: 11px; }
@@ -537,6 +540,14 @@
             <li>아기 식사와 부모님 휴식을 위해 예약 불가 식당은 대기 30분을 넘기지 않고 다음 후보로 이동합니다.</li>
           </ul>
           <a class="source-link" href="https://canalcity.co.jp/" target="_blank" rel="noopener">캐널시티 공식 안내 ↗</a>
+        </article>
+
+        <article class="info-card">
+          <h3>🚕 GO 앱 택시 메시지</h3>
+          <p><span class="label">대형 왜건</span> 출발지 입력 → 「次へすすむ」 → 「大型ワゴン」 버튼 선택(근처에 차가 있을 때만 표시, 예약 불가). 최대 5명·캐리어 4개 정도, 운임의 10~20% 추가, 결제는 GO Pay만. 버튼이 안 뜨면 일반 택시 2대.</p>
+          <p><span class="label">메시지</span> 배차 후 기사님께 보내는 메시지 칸에 아래 문구를 복사해 붙여넣으세요.</p>
+          <div class="go-msg"><small>시내 이동 · 성인 4명 + 11개월 아기, 유모차</small><p class="go-msg-text">大人4名と生後11か月の乳児1名、合計5名です。ベビーカーがあります。よろしくお願いします。</p><button class="mini-button go-copy" type="button">📋 복사</button></div>
+          <div class="go-msg"><small>공항 이동 · 소형 유모차 1개 + 캐리어 2개</small><p class="go-msg-text">大人4名と生後11か月の乳児1名、合計5名です。トランクに小型ベビーカー1台とスーツケース2個を載せたいです。よろしくお願いします。</p><button class="mini-button go-copy" type="button">📋 복사</button></div>
         </article>
 
         <article class="info-card">
@@ -1191,6 +1202,20 @@
       modalBackdrop.classList.add('open');
     }
     document.addEventListener('click', (event) => {
+      const copyBtn = event.target.closest('.go-copy');
+      if (copyBtn) {
+        const text = copyBtn.parentElement.querySelector('.go-msg-text').textContent;
+        const done = () => { copyBtn.textContent = '✅ 복사됨'; setTimeout(() => { copyBtn.textContent = '📋 복사'; }, 1500); };
+        const fallback = () => {
+          const ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+          document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, text.length);
+          let ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+          ta.remove(); if (ok) done(); else copyBtn.textContent = '문구를 길게 눌러 복사';
+        };
+        if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+        else fallback();
+        return;
+      }
       const button = event.target.closest('[data-detail]');
       if (button) { openModal(button.dataset.title, decodeURIComponent(button.dataset.detail)); return; }
       const igBtn = event.target.closest('[data-ig]');
