@@ -731,7 +731,8 @@
       bshop: {"name": "Bshop 원 후쿠오카 빌딩점 매장", "thumb": "images/bshop-thumb.jpg", "large": "images/bshop.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
       kanno: {"name": "칸노코히 커피와 빵", "thumb": "images/kanno-thumb.jpg", "large": "images/kanno.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
       iwatayacdg: {"name": "이와타야 본점과 꼼데가르송 매장 위치", "thumb": "images/iwataya-cdg-thumb.jpg", "large": "images/iwataya-cdg.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
-      ashinaga: {"name": "아시나가 입구", "thumb": "images/ashinaga-thumb.jpg", "large": "images/ashinaga.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"}
+      ashinaga: {"name": "아시나가 입구", "thumb": "images/ashinaga-thumb.jpg", "large": "images/ashinaga.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
+      taketora: {"name": "히토쿠치 교자 타케토라 외관", "thumb": "images/taketora-thumb.jpg", "large": "images/taketora.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"}
     };
 
     // 택시 기사님께 보여줄 일본어 목적지
@@ -803,6 +804,7 @@
       '하카타역 → 오오이시 스미요시점': { place: 'oishi' },
       '오오이시 스미요시점 · 저녁 후보': { badge: 'reserve', icon: '🍲', place: 'oishi', ig: 'oishi', igThumb: 'oishi' },
       '오오이시 → 호텔 복귀': { place: 'hotel' },
+      '숙소 근처 맥주 · 히토쿠치 교자 타케토라': { icon: '🥟', photo: 'taketora' },
       '호텔 → 라라포트': { place: 'lalaport' },
       "라라포트 · 아카짱혼포 → MARKEY'S → BREEZE": { photo: 'lalaport' },
       '라라포트 점심': { icon: '🍱' },
@@ -830,7 +832,7 @@
     const dayKeys = {
       1: [['11:30', '김해공항 국제선 도착 · 14:00 BX0509 출발'], ['18:00', '원조 하카타 멘타이쥬 저녁 (예약)'], ['20:00', '캐널시티 분수쇼']],
       2: [['12:30', '텐진 점심: 효탄 → 신신 → 돈테키'], ['13:40', '이와타야(꼼데) → 몽벨 → 지하상가 → 미나 → 파르코 → 원빌딩'], ['17:10', '이나바쵸 잇케이 저녁 (예약)'], ['19:00', '숙소 근처 맥주 · 아시나가']],
-      3: [['08:05', '대형 택시 → 09:17 유후인노모리 1호'], ['14:45', '긴린코 출발 · 15:15까지 유후인역'], ['15:56', '4호 귀환 → 18:30 오오이시']],
+      3: [['08:05', '대형 택시 → 09:17 유후인노모리 1호'], ['14:45', '긴린코 출발 · 15:15까지 유후인역'], ['15:56', '4호 귀환 → 18:30 오오이시'], ['20:30', '숙소 옆 맥주 · 타케토라 교자']],
       4: [['10:00', '호빵맨 박물관 개장 입장 → 11:30 아시아 미술관'], ['12:10', '리버레인 → 라라포트 (점심·쇼핑·커피·건담)'], ['17:10', '사시스 대기 → 19:05 돈키호테 → 20:00 호텔']],
       5: [['08:40', '대형 택시로 공항 출발'], ['11:05', '에어부산 체크인 마감'], ['11:55', 'BX0506 출발 → 13:00 부산']]
     };
@@ -1005,7 +1007,8 @@
           { time: '15:56–18:10', type: 'transit', title: '유후인노모리 4호 · 유후인→하카타', desc: '지정석으로 하카타 복귀\n유모차와 쇼핑 짐을 내리기 전 다시 확인' },
           { time: '18:10–18:30', type: 'transit', title: '하카타역 → 오오이시 스미요시점', desc: '유후인노모리 하차 후 택시 또는 도보 약 10–12분\n아기와 부모님이 피곤하면 바로 호텔로 복귀', map: 'https://www.google.com/maps/dir/?api=1&origin=Hakata+Station&destination=Motsunabe+Oishi+Sumiyoshi&travelmode=walking' },
           { time: '18:30–20:00', type: 'meal', title: '오오이시 스미요시점 · 저녁 후보', desc: '牛もつ鍋 おおいし 住吉店 · 모츠나베\n〒812-0018 福岡市博多区住吉4丁目8-21 · 전화 092-476-3014\n1월 1일 특별 영업을 확인하고 좌석 예약 필수\n휴무라면 하카타역에서 바로 해결: 아뮤플라자 시티다이닝 쿠텐·하카타 데이토스 식당가 또는 역 도시락 포장', detail: '1월 1일 저녁 대안\n\n오오이시가 휴무이거나 대기가 길면 하카타역을 벗어나지 않고 해결합니다.\n\n① 아뮤플라자 하카타 9·10층 시티다이닝 쿠텐 / 지하 하카타 1번가\n② 하카타 데이토스 식당가\n③ 역 도시락·백화점 식품관에서 포장해 호텔에서 식사\n\n설날 영업시간은 전날 확인하세요. 동네 식당은 1월 1일에 대부분 쉬므로 호텔 주변을 찾아다니지 않는 편이 좋습니다.', map: 'https://www.google.com/maps/search/?api=1&query=Motsunabe+Oishi+Sumiyoshi+4-8-21' },
-          { time: '20:00–20:20', type: 'hotel', title: '오오이시 → 호텔 복귀', desc: '택시로 짧게 이동해 아기 목욕·수유 후 휴식\n다음 날 쇼핑용 접이식 가방 준비', map: 'https://www.google.com/maps/dir/?api=1&origin=Motsunabe+Oishi+Sumiyoshi&destination=CROSS+LIFE+Hakata+Tenjin&travelmode=driving' }
+          { time: '20:00–20:20', type: 'hotel', title: '오오이시 → 호텔 복귀', desc: '택시로 짧게 이동해 아기 목욕·수유 후 휴식\n다음 날 쇼핑용 접이식 가방 준비', map: 'https://www.google.com/maps/dir/?api=1&origin=Motsunabe+Oishi+Sumiyoshi&destination=CROSS+LIFE+Hakata+Tenjin&travelmode=driving' },
+          { time: '20:30–21:30', type: 'meal', title: '숙소 근처 맥주 · 히토쿠치 교자 타케토라', desc: '博多一口餃子 たけとら · 春吉3-26-27 · 호텔 바로 옆(직선 약 25m)\n한입 교자와 생맥주 · 마파두부도 인기 · 매일 17:00–다음 날 03:00 (구글 지도)\n1월 1일은 영업시간이 달라질 수 있어 전화 092-707-2955로 미리 확인\n리뷰에 흡연 언급이 많아 아기는 데려가지 말고 어른끼리 교대로 다녀오기', map: 'https://www.google.com/maps/search/?api=1&query=%E5%8D%9A%E5%A4%9A%E4%B8%80%E5%8F%A3%E9%A4%83%E5%AD%90+%E3%81%9F%E3%81%91%E3%81%A8%E3%82%89+%E6%98%A5%E5%90%893-26-27' }
         ]
       },
       {
