@@ -730,7 +730,8 @@
       parco: {"name": "후쿠오카 파르코 건물 외관", "thumb": "images/parco-thumb.jpg", "large": "images/parco.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
       bshop: {"name": "Bshop 원 후쿠오카 빌딩점 매장", "thumb": "images/bshop-thumb.jpg", "large": "images/bshop.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
       kanno: {"name": "칸노코히 커피와 빵", "thumb": "images/kanno-thumb.jpg", "large": "images/kanno.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
-      iwatayacdg: {"name": "이와타야 본점과 꼼데가르송 매장 위치", "thumb": "images/iwataya-cdg-thumb.jpg", "large": "images/iwataya-cdg.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"}
+      iwatayacdg: {"name": "이와타야 본점과 꼼데가르송 매장 위치", "thumb": "images/iwataya-cdg-thumb.jpg", "large": "images/iwataya-cdg.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"},
+      ashinaga: {"name": "아시나가 입구", "thumb": "images/ashinaga-thumb.jpg", "large": "images/ashinaga.jpg", "page": "", "artist": "가족이 고른 사진", "license": "직접 제공", "source": "가족 제공 사진"}
     };
 
     // 택시 기사님께 보여줄 일본어 목적지
@@ -787,6 +788,7 @@
       '텐진 쇼핑 → 이나바쵸 잇케이': { place: 'ikkei' },
       '이나바쵸 잇케이 · 이른 저녁': { badge: 'reserve', icon: '🍲', place: 'ikkei', ig: 'ikkei', igThumb: 'ikkei' },
       '이나바쵸 잇케이 → 호텔 복귀': { place: 'hotel' },
+      '숙소 근처 맥주 · 아시나가': { icon: '🍺', photo: 'ashinaga' },
       '호텔 → 하카타역': { badge: 'reserve', critical: true, place: 'hakata' },
       '유후인노모리 탑승 준비': { card: true, photo: 'hakata' },
       '유후인노모리 1호 · 하카타→유후인': { card: true, photo: 'yufuinnomori', badge: 'reserve', critical: true },
@@ -827,7 +829,7 @@
     // 날짜별 핵심 3줄 (빨간 시간 = 놓치면 안 되는 시간)
     const dayKeys = {
       1: [['11:30', '김해공항 국제선 도착 · 14:00 BX0509 출발'], ['18:00', '원조 하카타 멘타이쥬 저녁 (예약)'], ['20:00', '캐널시티 분수쇼']],
-      2: [['12:30', '텐진 점심: 효탄 → 신신 → 돈테키'], ['13:40', '이와타야(꼼데) → 몽벨 → 지하상가 → 미나 → 파르코 → 원빌딩'], ['17:10', '이나바쵸 잇케이 저녁 (예약)']],
+      2: [['12:30', '텐진 점심: 효탄 → 신신 → 돈테키'], ['13:40', '이와타야(꼼데) → 몽벨 → 지하상가 → 미나 → 파르코 → 원빌딩'], ['17:10', '이나바쵸 잇케이 저녁 (예약)'], ['19:00', '숙소 근처 맥주 · 아시나가']],
       3: [['08:05', '대형 택시 → 09:17 유후인노모리 1호'], ['14:45', '긴린코 출발 · 15:15까지 유후인역'], ['15:56', '4호 귀환 → 18:30 오오이시']],
       4: [['10:00', '호빵맨 박물관 개장 입장 → 11:30 아시아 미술관'], ['12:10', '리버레인 → 라라포트 (점심·쇼핑·커피·건담)'], ['17:10', '사시스 대기 → 19:05 돈키호테 → 20:00 호텔']],
       5: [['08:40', '대형 택시로 공항 출발'], ['11:05', '에어부산 체크인 마감'], ['11:55', 'BX0506 출발 → 13:00 부산']]
@@ -978,7 +980,8 @@
           { time: '16:40–17:05', type: 'cafe', title: '원 후쿠오카 빌딩 4층 · 칸노코히', desc: '神乃珈琲 · 같은 건물 4층 · 평일 11:00–20:00(12/31은 목요일) · 주말·공휴일 10:00–20:00\n부모님·아기 휴식 · 17:10 저녁을 위해 음료 위주로 가볍게\n연말 영업시간은 전화 092-707-1677로 확인', map: 'https://www.google.com/maps/search/?api=1&query=KANNO+COFFEE+ONE+FUKUOKA+BLDG' },
           { time: '17:05–17:10', type: 'transit', title: '텐진 쇼핑 → 이나바쵸 잇케이', desc: '원 후쿠오카 빌딩 바로 옆 텐진 비즈니스센터 B2F로 이동(도보 2~3분)\n지하 연결 통로를 이용하면 추위와 비를 피하기 쉬움', map: 'https://www.google.com/maps/dir/?api=1&origin=mont-bell+Fukuoka+Tenjin&destination=Inabacho+Ikkei&travelmode=walking' },
           { time: '17:10–18:30', type: 'meal', title: '이나바쵸 잇케이 · 이른 저녁', desc: '因幡町 一慶 · 天神1-10-20 天神ビジネスセンターB2F\n아부리 모츠나베·해산물·하카타 향토요리\n전화 092-791-3161 · 성인 4명과 아기 1명 테이블석 예약 확인\n대안: 야타로 우동(24시간 · 텐진미나미역 도보 3분 · 현금만) — 💡 상세', map: 'https://www.google.com/maps/search/?api=1&query=Inabacho+Ikkei+Fukuoka', detail: '이나바쵸 잇케이\n\n• 위치: 텐진 비즈니스센터 B2F, 텐진역 직결\n• 대표 메뉴: 아부리 모츠나베, 생선회, 채소말이 꼬치\n• 전석 금연, 유아 동반 가능\n• 공식 계정: @inabachou.ikkei\n• 전화: 092-791-3161\n• 12월 31일 특별 영업시간과 테이블석을 사전에 확인하세요.\n\n저녁 대안 · 야타로 우동(弥太郎うどん)\n• 잇케이가 휴무·만석이거나 가볍게 먹고 싶을 때\n• 주소: 福岡市中央区渡辺通5-1-18 (지하철 텐진미나미역 도보 약 3분)\n• 24시간 영업 · 현금만 · 우동·소바\n• 일요일 밤·공휴일은 쉬는 시간이 있어 정보가 엇갈림 — 12/31은 평일이지만 연말이라 미리 확인\n• 아기용 우동은 면을 잘게 잘라 국물 간을 확인하고 주세요.' },
-          { time: '18:30–18:50', type: 'hotel', title: '이나바쵸 잇케이 → 호텔 복귀', desc: '도보 또는 짧은 택시로 숙소 복귀\n아기 목욕·수유 후 연말 밤은 가족 휴식 우선', map: 'https://www.google.com/maps/dir/?api=1&origin=Inabacho+Ikkei&destination=CROSS+LIFE+Hakata+Tenjin&travelmode=walking' }
+          { time: '18:30–18:50', type: 'hotel', title: '이나바쵸 잇케이 → 호텔 복귀', desc: '도보 또는 짧은 택시로 숙소 복귀\n아기 목욕·수유 후 연말 밤은 가족 휴식 우선', map: 'https://www.google.com/maps/dir/?api=1&origin=Inabacho+Ikkei&destination=CROSS+LIFE+Hakata+Tenjin&travelmode=walking' },
+          { time: '19:00–20:00', type: 'meal', title: '숙소 근처 맥주 · 아시나가', desc: 'アシナガ · 春吉2-6-9 1階B号室 · 호텔에서 직선 약 100m\n타코야키와 생맥주가 인기인 작은 다치노미(서서 마시는) 이자카야 · 16:00부터 영업(구글 지도)\n아기를 재운 뒤 어른끼리 교대로 다녀오기 좋음 · 12월 31일 영업 여부와 마감 시간은 미리 확인', map: 'https://www.google.com/maps/search/?api=1&query=%E3%82%A2%E3%82%B7%E3%83%8A%E3%82%AC+%E6%98%A5%E5%90%892-6-9' }
         ]
       },
       {
